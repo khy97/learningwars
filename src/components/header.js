@@ -4,9 +4,9 @@ import React from 'react'
 import headerStyles from './header.module.css';
 const Header = ({ siteTitle }) => (
   <div style={{
-      background: `white`,
+      background: `none`,
       marginBottom: `1.45rem`,
-      boxShadow: `0px 7px 10px -12px rgba(161,158,161,1)`,
+      // boxShadow: `0px 7px 10px -12px rgba(161,158,161,1)`,
       position:`fixed`,
       top:0,
       width: `100vw`,
@@ -20,10 +20,10 @@ const Header = ({ siteTitle }) => (
       </Link>
       <nav className={headerStyles.headerNav}>
         <ul className={headerStyles.headerList}>
-          <li className={headerStyles.navItem}><Link to="/" style={{textDecoration:`none`, color:`black`}}>Home</Link></li>
-          <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`, color:`black`}}>Authors</Link></li>
-          <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`, color:`black`}}>Archive</Link></li>
-          <li className={headerStyles.navItem}><Link to="/contact" style={{textDecoration:`none`, color:`black`}}>Contact Us</Link></li>
+          <li className={headerStyles.navItem}><Link to="/" style={{textDecoration:`none`, color:`white`}}>Home</Link></li>
+          <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`, color:`white`}}>Authors</Link></li>
+          <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`, color:`white`}}>Archive</Link></li>
+          <li className={headerStyles.navItem}><Link to="/contact" style={{textDecoration:`none`, color:`white`}}>Contact Us</Link></li>
         </ul>
       </nav>
     </div>

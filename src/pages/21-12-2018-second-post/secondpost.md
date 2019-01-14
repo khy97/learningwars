@@ -1,7 +1,7 @@
 ---
 path: '/second-post'
 title: 'Second Blog'
-author: 'Huiyeon'
+author: 'Huiyeon Kim'
 date: '2018-12-19'
 image: LearnWars.PNG
 ---

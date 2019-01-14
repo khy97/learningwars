@@ -17,12 +17,12 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div className="body">
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className="layoutbody">
           {children}
         </div>
-      </>
+      </div>
     )}
   />
 )

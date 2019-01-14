@@ -1,7 +1,7 @@
 ---
 path: '/first-post'
 title: 'First Blog'
-author: 'Huiyeon'
+author: 'Huiyeon Kim'
 date: '2018-12-18'
 image: LearnWars.PNG
 ---
