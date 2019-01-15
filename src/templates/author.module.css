@@ -25,6 +25,7 @@
     justify-content: center;
     align-items: center;
     min-width: 0;
+    height:100%;
 }
 
 .memberImage {
@@ -39,7 +40,7 @@
     height: 240px;
     margin: auto;
     min-width: 0;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .authorName {
@@ -49,6 +50,26 @@
 .authorDesc {
     font-family: 'Thasadith';
     min-width: 0;
+}
+
+.authorButtons {
+    display: flex;
+}
+
+.authorButton {
+    display:flex;
+    justify-content:space-around; 
+    align-items:center; 
+    width:170px; 
+    height:40px; 
+    background:#007bb5; 
+    border:none; 
+    color:white; 
+    font-family:"Montserrat"; 
+    border-radius:5px; 
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
+    cursor:pointer; 
+    margin-right:10px;
 }
 
 @media only screen and (max-width:750px) {
@@ -70,12 +91,21 @@
     }
     
     .authorRole {
-        padding-left: 30px;
-        padding-right:30px;
+        padding-left: 20px;
+        padding-right:20px;
     }
 
     .authorDesc {
-        font-size: 14px;
+        font-size: 11px;
         width: 100%;
+    }
+    .authorButton {
+        font-size:12px;
+        width:140px;
+        height:30px;
+    }
+
+    .authorButton img {
+        width:20px;
     }
 }

@@ -21,7 +21,8 @@ module.exports = {
         fonts: [
           `Montserrat`,
           `Raleway`,
-          `Thasadith` // you can also specify font weights and styles
+          `Thasadith`, // you can also specify font weights and styles
+          `Crete Round`
         ]
       }
     },
