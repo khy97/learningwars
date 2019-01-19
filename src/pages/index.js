@@ -12,7 +12,7 @@ class IndexPage extends React.Component {
         <Layout>
           <SEO title="Home" keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","Teach"]} />
           <div>
-            <h1>Home</h1>
+            <h1>All Articles</h1>
             {postList.edges.map(({node}, i) => (
               <div className={indexStyles.postBox} key={i} >
                 <div style={{width:`100%`, height:`100%`}}>
@@ -43,7 +43,7 @@ export const listQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 240)
           frontmatter {
             date(formatString: "MMMM Do YYYY")
             title
