@@ -11,7 +11,7 @@ export default function Template({data}) {
 
     return (
         <Layout>
-            <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`]} />
+            <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} />
             <div style={{background:`rgba(255,255,255,1)`, padding:`10px 15px 10px`, borderRadius:2, marginBottom:30}}>
                 <div style={{width:`70%`, height:`70%`, margin:`auto`}}>
                     <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} style={{marginBottom:`40px`}} />

@@ -22,6 +22,7 @@ class Author extends React.Component {
         return (
             <Layout>
                 <SEO title="Authors" keywords={[`Learning Wars`, `Blog`, `Authors`, `Teach`, `Tech`]} />
+                <h1>Authors</h1>
                 {this.state.authors.map((author, i) => (
                     <AuthorTemplate 
                         authorName={author.authorName}
