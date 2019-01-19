@@ -1,12 +1,20 @@
 .authorInfo {
     display:grid; 
-    grid-template-columns:300px auto; 
+    grid-template-columns:300px auto;
     margin-bottom:30px; 
 }
 
 .authorInfoImage {
     width: 150px;
     margin:auto;
+}
+
+.authorInfoSpan {
+    font-family: "Crete Round";
+    font-size:30px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
 }
 
 .authorInfoName {
@@ -35,42 +43,38 @@
     z-index:5; 
     margin-bottom:20px; 
     padding:20px 10px 5px 20px; 
-    border-top: 4px solid #ba3e32;
 }
 
 .authorBlogsDiv {
     display:grid; 
-    grid-template-rows:60px auto 50px; 
+    grid-template-rows:auto auto 50px; 
+    grid-template-columns: auto 300px;
+    grid-template-areas:
+                "header image"
+                "excerpt image"
+                "date image";
     font-family:"Raleway";
+    padding-bottom: 10px;
 }
 
 .authorBlogsTitle {
-    grid-row:1/2; 
+    grid-area: header;
     font-family: 'Crete Round';
     cursor: pointer;
     position: relative;    
+}
+
+.authorBlogsImg {
+    grid-area: image;
 }
 
 .authorBlogsTitleSpan {
     position: relative;
 }
 
-.authorBlogsTitleSpan:after {
-    content:'';
-    position: absolute;
-    right:0;
-    width:0;
-    bottom:0;
-    border-bottom: 3px solid black;
-    transition: 0.5s ease;
-}
-
-.authorBlogsTitleSpan:hover:after {
-    width:100%;
-}
 
 .authorBlogsExcerpt {
-    grid-row:2/3; 
+    grid-area: excerpt; 
     margin:auto; 
     font-family:"Thasadith";
     cursor: pointer;
@@ -78,6 +82,43 @@
     transition: 1s ease;
 }
 
-.authorBlogsExcerpt:hover {
-    text-decoration: underline;
+.authorBlogsDate {
+    grid-area: date;
+    display:flex;
+    flex-direction:column;
+    font-size:13px;
+    margin:auto 0;
+    padding-top:5px;
+    color:#757575;
+}
+
+@media only screen and (max-width:750px) {
+    .authorBlogsDiv {
+        grid-template-columns: none;
+        grid-template-rows: 200px auto auto 50px;
+        grid-template-areas:
+            "image"
+            "header"
+            "excerpt"
+            "date"
+    }
+
+    .authorBlogsImg {
+        margin-bottom:10px;
+    }
+
+    .authorInfo {
+        grid-template-columns: none;
+        grid-template-rows: 200px auto;
+    }
+
+    .authorInfoSpan {
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    .authorInfoImage {
+        width:120px;
+    }
+
 }

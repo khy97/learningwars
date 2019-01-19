@@ -3,6 +3,7 @@ import { graphql, navigate } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import authorBlogStyles from './authorblog.module.css'
+import Img from 'gatsby-image';
 
 export default function AuthorBlogPosts({data}) {
     const postList = data.allMarkdownRemark;
@@ -13,14 +14,15 @@ export default function AuthorBlogPosts({data}) {
             <div>
                 <div className={authorBlogStyles.authorInfo}>
                     <img className={authorBlogStyles.authorInfoImage} src={require(`../images/${author}.png`)} alt=""/>
-                    <span style={{fontFamily: `Crete Round`, fontSize:30, display:`flex`, justifyContent:`flex-start`, alignItems:`center`}}>All Posts by &nbsp;<strong className={authorBlogStyles.authorInfoName} onClick={() => navigate(`/author#${author.split(" ").join('_')}`)}>{author}</strong></span>
+                    <span className={authorBlogStyles.authorInfoSpan}>All Posts by &nbsp;<strong className={authorBlogStyles.authorInfoName} onClick={() => navigate(`/author#${author.split(" ").join('_')}`)}>{author}</strong></span>
                 </div>
                 {postList.edges.map(({node}, i) => (
                 <div className={authorBlogStyles.authorBlogs} key={i}>
-                    <div style={{textDecoration:`none`, color:`black`}}>
+                    <div style={{color:`black`}}>
                         <div className={authorBlogStyles.authorBlogsDiv}>
                             <h2 onClick={() => navigate(node.frontmatter.path)} className={authorBlogStyles.authorBlogsTitle}><span className={authorBlogStyles.authorBlogsTitleSpan}>{node.frontmatter.title}</span></h2>
-                            <div style={{gridRow:`3/4`, display:`flex`, flexDirection:`column`, fontSize:13, margin:`auto 0`, paddingTop:5, color:`#757575`,}}>
+                            <Img fluid={node.frontmatter.cover_image.childImageSharp.fluid} className={authorBlogStyles.authorBlogsImg}/>
+                            <div className={authorBlogStyles.authorBlogsDate}>
                                 <span>{node.frontmatter.date}</span>
                             </div>
                             <p onClick={() => navigate(node.frontmatter.path)} className={authorBlogStyles.authorBlogsExcerpt}>{node.excerpt}</p>
@@ -47,6 +49,14 @@ export const postQuery = graphql`
                 title
                 author
                 path
+                cover_image {
+                    publicURL
+                    childImageSharp {
+                        fluid(maxWidth: 1240) {
+                            srcSet
+                        }
+                    }
+                }
               }
             }
           }

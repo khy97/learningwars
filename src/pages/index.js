@@ -16,7 +16,9 @@ class IndexPage extends React.Component {
               <div className={indexStyles.postBox} key={i} >
                 <div style={{width:`100%`, height:`100%`}}>
                   <div className={indexStyles.postGrid}>
-                    <Img className={indexStyles.postImage} sizes={node.frontmatter.cover_image.childImageSharp.sizes} onClick={() => navigate(node.frontmatter.path)}/>
+                    <div className={indexStyles.postImage} onClick={() => navigate(node.frontmatter.path)}>
+                        <Img fluid={node.frontmatter.cover_image.childImageSharp.fluid} className={indexStyles.postImg}/>
+                    </div>
                     <h2 className={indexStyles.postHeader} onClick={() => navigate(node.frontmatter.path)}>{node.frontmatter.title}</h2>
                     <div className={indexStyles.postAuthor}>
                       <span>{node.frontmatter.date}</span>
@@ -49,8 +51,8 @@ export const listQuery = graphql`
             cover_image {
                 publicURL
                 childImageSharp {
-                    sizes(maxWidth: 1240) {
-                        srcSet
+                    fluid(maxWidth: 1240) {
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }
