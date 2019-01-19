@@ -30,7 +30,7 @@ class Header extends React.Component {
               <li className={headerStyles.navItem}><Link to="/" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Home</Link></li>
               <li className={headerStyles.navItem}><Link to="/author" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Authors</Link></li>
               {/* <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`}}>Archive</Link></li> */}
-              <li className={headerStyles.navItem}><Link to="/contact" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Contact Us</Link></li>
+              {/* <li className={headerStyles.navItem}><Link to="/contact" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Contact Us</Link></li> */}
             </ul>
           </nav>
         </div>

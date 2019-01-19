@@ -1,0 +1,83 @@
+.authorInfo {
+    display:grid; 
+    grid-template-columns:300px auto; 
+    margin-bottom:30px; 
+}
+
+.authorInfoImage {
+    width: 150px;
+    margin:auto;
+}
+
+.authorInfoName {
+    position: relative;
+    cursor: pointer;
+}
+
+.authorInfoName:after {
+    content:'';
+    display: block;
+    border-bottom: 3px solid black;
+    width: 0;
+    position: absolute;
+    right: 0;
+    transition: 0.5s ease;
+}
+
+.authorInfoName:hover:after {
+    width:100%;
+}
+
+.authorBlogs {
+    border-radius:2;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
+    background:white; 
+    z-index:5; 
+    margin-bottom:20px; 
+    padding:20px 10px 5px 20px; 
+    border-top: 4px solid #ba3e32;
+}
+
+.authorBlogsDiv {
+    display:grid; 
+    grid-template-rows:60px auto 50px; 
+    font-family:"Raleway";
+}
+
+.authorBlogsTitle {
+    grid-row:1/2; 
+    font-family: 'Crete Round';
+    cursor: pointer;
+    position: relative;    
+}
+
+.authorBlogsTitleSpan {
+    position: relative;
+}
+
+.authorBlogsTitleSpan:after {
+    content:'';
+    position: absolute;
+    right:0;
+    width:0;
+    bottom:0;
+    border-bottom: 3px solid black;
+    transition: 0.5s ease;
+}
+
+.authorBlogsTitleSpan:hover:after {
+    width:100%;
+}
+
+.authorBlogsExcerpt {
+    grid-row:2/3; 
+    margin:auto; 
+    font-family:"Thasadith";
+    cursor: pointer;
+    text-decoration: none;
+    transition: 1s ease;
+}
+
+.authorBlogsExcerpt:hover {
+    text-decoration: underline;
+}

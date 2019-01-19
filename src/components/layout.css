@@ -642,3 +642,10 @@ pre tt:after {
     margin: 150px auto 0;
   }
 }
+
+.md {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}

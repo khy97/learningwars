@@ -1,0 +1,78 @@
+.postBox {
+    border-radius:2;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background:rgba(255,255,255,1);
+    z-index:5;
+    margin-bottom:20px;
+    padding:20px 10px 20px 20px;
+    /* border-top: 4px solid #ba3e32; */
+    min-height:230px;
+}
+
+.postGrid {
+    width: 100%;
+    height: 100%;
+    display:grid;
+    grid-template-rows:auto auto 50px;
+    grid-template-columns: auto 300px;
+    grid-template-areas: 
+            "header image"
+            "excerpt image"
+            "author image";
+    grid-column-gap: 20px;
+    font-family:"Raleway";
+}
+
+.postHeader {
+    grid-area: header;
+    font-family: "Crete Round";
+    cursor:pointer;
+    height:100%;
+    display: block;
+}
+
+.postAuthor {
+    grid-area: author;
+    display:flex;
+    flex-direction:column;
+    font-size:13px;
+    margin:auto 0;
+    padding-top:5px;
+    color:#757575;
+}
+
+.postAuthorName {
+    display: inline;
+    color:blue;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.postExcerpt {
+    grid-area: excerpt;
+    margin:auto;
+    font-family:"Open Sans";
+    cursor:pointer;
+    font-size:14px;
+}
+
+.postImage {
+    grid-area: image;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .postGrid {
+        grid-template-columns: none;
+        grid-template-rows: 200px auto auto 50px;
+        grid-template-areas:
+                    "image"
+                    "header"
+                    "excerpt"
+                    "author";
+    }
+
+    .postImage {
+        margin-bottom:10px;
+    }
+}

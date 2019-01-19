@@ -1,0 +1,26 @@
+.postAut {
+    display: grid;
+    grid-template-columns: 150px auto;
+    /* border:1px solid black; */
+    grid-gap: 30px;
+    margin-top:20px;
+}
+
+.postAutImg {
+    width:150px;
+    margin:auto;
+}
+
+.postAutInf {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width:620px) {
+    .postAut {
+        grid-template-columns: none;
+        grid-template-rows: 150px auto;
+    }
+}

@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Learning Wars`,
-    description: `Teach what you learn, Learn what you teach. Visit our website to read about what the writers are learning!`,
-    author: `@huiyeonkim`,
-  },
-  plugins: [
+      title: `Learning Wars`,
+      description: `Teach what you learn, Learn what you teach. Visit our website to read about what the writers are learning!`,
+      author: `@huiyeonkim`,
+    },
+    plugins: [
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,7 +23,8 @@ module.exports = {
           `Montserrat`,
           `Raleway`,
           `Thasadith`, // you can also specify font weights and styles
-          `Crete Round`
+          `Crete Round`,
+          `Open Sans`
         ]
       }
     },
@@ -39,9 +41,36 @@ module.exports = {
       },
     },
 
-    'gatsby-transformer-remark',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    {
+        resolve:'gatsby-transformer-remark',
+        options: {
+            plugins: [
+                {
+                    resolve: `gatsby-remark-images`,
+                    options: {
+                      maxWidth: 850,
+                    },
+                },
+                {
+                    resolve: `gatsby-remark-responsive-iframe`,
+                    options: {
+                      wrapperStyle: `margin-bottom: 1.0725rem`,
+                    },
+                },
+                'gatsby-remark-prismjs',
+                'gatsby-remark-copy-linked-files',
+                'gatsby-remark-smartypants',
+            ]
+        }
+    },
+   
+    `gatsby-remark-copy-linked-files`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-remark-images`,
+      options: {
+        maxWidth: 1080,
+      },
+    },
   ],
 }

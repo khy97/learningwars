@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .author {
@@ -15,6 +16,7 @@
     border-top: 4px solid #ba3e32;
     min-height: 340px;
     width: 100%;
+    padding-bottom:20px;
 }
 
 
@@ -54,29 +56,28 @@
 
 .authorButtons {
     display: flex;
+    /* border:1px solid black; */
+    justify-content: center;
 }
 
-.authorButton {
-    display:flex;
-    justify-content:space-around; 
-    align-items:center; 
-    width:170px; 
-    height:40px; 
-    background:#007bb5; 
-    border:none; 
-    color:white; 
-    font-family:"Montserrat"; 
-    border-radius:5px; 
-    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
-    cursor:pointer; 
-    margin-right:10px;
+.authorImg {
+    padding:0;
+    margin:0;
+    width:34px;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.authorImg:hover {
+    transform: scale(1.5);
 }
 
 @media only screen and (max-width:750px) {
     .author {
         grid-template-columns: none;
         grid-template-rows: 200px auto;
-        padding-bottom:40px;
+        padding-bottom:60px;
     }
     
     .authorImage {
@@ -96,16 +97,7 @@
     }
 
     .authorDesc {
-        font-size: 11px;
+        font-size: 13px;
         width: 100%;
-    }
-    .authorButton {
-        font-size:12px;
-        width:140px;
-        height:30px;
-    }
-
-    .authorButton img {
-        width:20px;
     }
 }

@@ -3,7 +3,7 @@ path: '/second-post'
 title: 'Second Blog'
 author: 'Huiyeon Kim'
 date: '2018-12-19'
-image: LearnWars.PNG
+cover_image: "./LearnWars.PNG"
 ---
 Don't build a website with last decade's tech. The future of the web is mobile,
  JavaScript and APIs—the
