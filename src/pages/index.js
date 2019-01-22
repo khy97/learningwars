@@ -12,7 +12,7 @@ class IndexPage extends React.Component {
         <Layout>
           <SEO title="Home" keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","Teach"]} />
           <div>
-            <h1>All Articles</h1>
+            <h1 style={{fontSize:22}}>Welcome to Learning Wars!</h1>
             {postList.edges.map(({node}, i) => (
               <div className={indexStyles.postBox} key={i} >
                 <div style={{width:`100%`, height:`100%`}}>
@@ -52,7 +52,7 @@ export const listQuery = graphql`
             cover_image {
                 publicURL
                 childImageSharp {
-                    fixed(width: 300) {
+                    fixed(width: 270) {
                         ...GatsbyImageSharpFixed
                     }
                 }

@@ -66,7 +66,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
+  font-size: 12px;
   margin: 0.67em 0;
 }
 mark {
@@ -631,15 +631,15 @@ pre tt:after {
 } */
 
 .layoutbody {
-  margin: 120px auto 0;
+  margin: 90px auto 0;
   max-width: 960px;
-  padding:0 1.0875rem 1.45rem;
+  padding:0 0.5rem 1.45rem;
   padding-top: 0;
 }
 
 @media only screen and (max-width: 600px) {
   .layoutbody {
-    margin: 150px auto 0;
+    margin: 110px auto 0;
   }
 }
 
