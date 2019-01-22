@@ -6,6 +6,12 @@ module.exports = {
       siteUrl: `https://learningwars.com`
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                output:`/my-sitemap.xml`
+            }
+        },
     `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
