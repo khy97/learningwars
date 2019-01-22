@@ -5,6 +5,7 @@ module.exports = {
       author: `@huiyeonkim`,
     },
     plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
@@ -71,6 +72,20 @@ module.exports = {
       options: {
         maxWidth: 1080,
       },
+    },
+    {
+        resolve: `gatsby-plugin-google-analytics`,
+        options: {
+          trackingId: "UA-132877953-1",
+          // Puts tracking script in the head instead of the body
+          head: false,
+          // Setting this parameter is optional
+          anonymize: true,
+          // Setting this parameter is also optional
+          respectDNT: true,
+          sampleRate: 5,
+          siteSpeedSampleRate: 10
+        },
     },
   ],
 }
