@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-      title: `Learning Wars - Blog For Passionate Learners`,
+      title: `LearnWars - Blog For Passionate Learners`,
       description: `Teach what you learn, Learn what you teach. Visit our website to read about what the writers are learning!`,
       author: `@huiyeonkim`,
-      siteUrl: `https://learningwars.com`
+      siteUrl: `https://learnwars.com`
     },
     plugins: [
         {
