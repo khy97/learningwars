@@ -69,18 +69,24 @@
 }
 
 @media only screen and (max-width:600px) {
-    .headerImg {
+    /* .headerImg {
         width:100px;
         margin:auto;
+    } */
+
+    .headerNav {
+        grid-column-start: 2;
     }
 
     .headerDiv{
-        grid-template-columns: none;
-        /* grid-template-rows: 90px 1fr; */
+        grid-template-columns: 1fr 1fr;
+
     }
 
     .navItem {
         width:auto;
+
+
     }
 
 }

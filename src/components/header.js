@@ -22,7 +22,7 @@ class Header extends React.Component {
     return (
         <div className={headerStyles.headerMainDiv} >    
         <div className={headerStyles.headerDiv}>
-          <Link to='/' style={{margin:`auto`}}>
+          <Link to='/'>
             <img src={require('../images/LearnWars.png')} alt=""  className={headerStyles.headerImg}/>
           </Link>
           <nav className={headerStyles.headerNav}>
