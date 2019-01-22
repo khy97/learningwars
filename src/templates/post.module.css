@@ -32,9 +32,19 @@
     font-size: 12px;
 }
 
+.postMain {
+    padding:10px 70px 10px;
+    border-radius:2;
+    margin-bottom:30px;
+}
+
 @media only screen and (max-width:620px) {
     .postAut {
         grid-template-columns: none;
         grid-template-rows: 150px 200px;
+    }
+    
+    .postMain{
+        padding:10px 5px 10px;
     }
 }

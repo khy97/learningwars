@@ -24,7 +24,7 @@
     "header image"
     "excerpt image"
     "author image";
-    grid-column-gap: 20px;
+    grid-gap: 20px;
     font-family:"Raleway";
     z-index: -1;
 }
@@ -70,6 +70,9 @@
     grid-area: image;
     cursor: pointer;
     z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
 
 @media only screen and (max-width: 600px) {

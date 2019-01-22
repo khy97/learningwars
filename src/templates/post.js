@@ -12,13 +12,13 @@ export default function Template({data}) {
     return (
         <Layout>
             <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} />
-            <div style={{background:`rgba(255,255,255,1)`, padding:`10px 15px 10px`, borderRadius:2, marginBottom:30}}>
+            <div className={postStyle.postMain}>
                 <div style={{width:`70%`, height:`70%`, margin:`auto`}}>
                     <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} style={{marginBottom:`40px`}} />
                 </div>
                 <h1 style={{fontFamily:`Crete Round`}}>{post.frontmatter.title}</h1>
                 <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}}>BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, lineHeight:`1.6rem`, wordSpacing:`0.5px`}}/>
+                <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16}}/>
                 <div style={{marginTop:50, border: `5px solid black`, padding:`5px 30px 20px`, cursor:`pointer`}} onClick={() => navigate(`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`)}>
                     <div className={postStyle.postAut}>
                         <img src={require(`../images/${post.frontmatter.author}.png`)} alt="" className={postStyle.postAutImg}/>

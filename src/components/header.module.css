@@ -76,7 +76,7 @@
 
     .headerDiv{
         grid-template-columns: none;
-        grid-template-rows: 90px 1fr;
+        /* grid-template-rows: 90px 1fr; */
     }
 
     .navItem {
