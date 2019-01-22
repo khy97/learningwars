@@ -10,9 +10,9 @@ class IndexPage extends React.Component {
     const postList = this.props.data.allMarkdownRemark;
     return(
         <Layout>
-          <SEO title="Home" keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","Teach"]} />
+          <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} />
           <div>
-            <h1 style={{fontSize:22}}>Welcome to Learning Wars!</h1>
+            <h1 style={{fontSize:22}}>Welcome to LearnWars!</h1>
             {postList.edges.map(({node}, i) => (
               <div className={indexStyles.postBox} key={i} >
                 <div style={{width:`100%`, height:`100%`}}>
