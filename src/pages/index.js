@@ -52,7 +52,7 @@ export const listQuery = graphql`
             cover_image {
                 publicURL
                 childImageSharp {
-                    fixed(width: 270) {
+                    fixed(width: 300) {
                         ...GatsbyImageSharpFixed
                     }
                 }
