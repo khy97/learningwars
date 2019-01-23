@@ -14,6 +14,24 @@ exports.createPages = ({actions, graphql}) => {
     const authorTemplate = path.resolve('src/templates/author-blogs.js');
 
     createRedirect({
+        fromPath: "https://relaxed-feynman-adbdb7.netlify.com/",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "http://learningwars.com",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com 301!",
+    })
+    createRedirect({
+        fromPath: "https://learningwars.com",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
         fromPath: "http://relaxed-feynman-adbdb7.netlify.com/*",
         isPermanent: true,
         redirectInBrowser: true,
