@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "https://relaxed-feynman-adbdb7.netlify.com/*"
+  to = "https://learnwars.com/:splat"
+  force = true
