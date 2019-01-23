@@ -17,75 +17,75 @@ exports.createPages = ({actions, graphql}) => {
         fromPath: "http://learningwars.com/*",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat 301!",
+        toPath: "https://learnwars.com/:splat",
     })
     createRedirect({
         fromPath: "https://learningwars.com/*",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat 301!",
+        toPath: "https://learnwars.com/:splat",
     })
     
     createRedirect({
         fromPath: "http://relaxed-feynman-adbdb7.netlify.com/*",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat 301!",
+        toPath: "https://learnwars.com/:splat",
     })
     createRedirect({
         fromPath: "https://relaxed-feynman-adbdb7.netlify.com/*",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat 301!",
+        toPath: "https://learnwars.com/:splat",
     })
-    
+
     createRedirect({
         fromPath: "https://relaxed-feynman-adbdb7.netlify.com/",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "https://relaxed-feynman-adbdb7.netlify.com",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "http://relaxed-feynman-adbdb7.netlify.com",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "http://relaxed-feynman-adbdb7.netlify.com/",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "https://learningwars.com/",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "https://learningwars.com",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "http://learningwars.com",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
     createRedirect({
         fromPath: "http://learningwars.com/",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com/ 301!",
+        toPath: "https://learnwars.com/",
     })
 
 
