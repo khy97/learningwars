@@ -20,13 +20,19 @@ exports.createPages = ({actions, graphql}) => {
         toPath: "https://learnwars.com/ 301!",
     })
     createRedirect({
-        fromPath: "http://learningwars.com",
+        fromPath: "https://relaxed-feynman-adbdb7.netlify.com",
         isPermanent: true,
         redirectInBrowser: true,
-        toPath: "https://learnwars.com 301!",
+        toPath: "https://learnwars.com/ 301!",
     })
     createRedirect({
-        fromPath: "https://learningwars.com",
+        fromPath: "http://relaxed-feynman-adbdb7.netlify.com",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "http://relaxed-feynman-adbdb7.netlify.com/",
         isPermanent: true,
         redirectInBrowser: true,
         toPath: "https://learnwars.com/ 301!",
@@ -44,13 +50,37 @@ exports.createPages = ({actions, graphql}) => {
         toPath: "https://learnwars.com/:splat 301!",
     })
     createRedirect({
-        fromPath: "http://www.learningwars.com/*",
+        fromPath: "https://learningwars.com/",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "https://learningwars.com",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "http://learningwars.com",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "http://learningwars.com/",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/ 301!",
+    })
+    createRedirect({
+        fromPath: "http://learningwars.com/*",
         isPermanent: true,
         redirectInBrowser: true,
         toPath: "https://learnwars.com/:splat 301!",
     })
     createRedirect({
-        fromPath: "https://www.learningwars.com/*",
+        fromPath: "https://learningwars.com/*",
         isPermanent: true,
         redirectInBrowser: true,
         toPath: "https://learnwars.com/:splat 301!",
