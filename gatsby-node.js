@@ -9,10 +9,36 @@
 const path = require("path");
 
 exports.createPages = ({actions, graphql}) => {
-    const {createPage} = actions;
+    const {createPage, createRedirect} = actions;
     const postTemplate = path.resolve('src/templates/post.js');
     const authorTemplate = path.resolve('src/templates/author-blogs.js');
-    
+
+    createRedirect({
+        fromPath: "http://relaxed-feynman-adbdb7.netlify.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat 301!",
+    })
+    createRedirect({
+        fromPath: "https://relaxed-feynman-adbdb7.netlify.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat 301!",
+    })
+    createRedirect({
+        fromPath: "http://www.learningwars.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat 301!",
+    })
+    createRedirect({
+        fromPath: "https://www.learningwars.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat 301!",
+    })
+
+
     const blogs = new Promise((resolve, reject) => {
         const query = graphql(`{
             allMarkdownRemark {

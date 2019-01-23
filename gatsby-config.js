@@ -13,6 +13,7 @@ module.exports = {
             }
         },
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
