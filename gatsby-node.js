@@ -13,32 +13,7 @@ exports.createPages = ({actions, graphql}) => {
     const postTemplate = path.resolve('src/templates/post.js');
     const authorTemplate = path.resolve('src/templates/author-blogs.js');
     
-    createRedirect({
-        fromPath: "http://learningwars.com/*",
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat",
-    })
-    createRedirect({
-        fromPath: "https://learningwars.com/*",
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat",
-    })
     
-    createRedirect({
-        fromPath: "http://relaxed-feynman-adbdb7.netlify.com/*",
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat",
-    })
-    createRedirect({
-        fromPath: "https://relaxed-feynman-adbdb7.netlify.com/*",
-        isPermanent: true,
-        redirectInBrowser: true,
-        toPath: "https://learnwars.com/:splat",
-    })
-
     createRedirect({
         fromPath: "https://relaxed-feynman-adbdb7.netlify.com/",
         isPermanent: true,
@@ -87,7 +62,32 @@ exports.createPages = ({actions, graphql}) => {
         redirectInBrowser: true,
         toPath: "https://learnwars.com/",
     })
-
+    
+    createRedirect({
+        fromPath: "http://learningwars.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat",
+    })
+    createRedirect({
+        fromPath: "https://learningwars.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat",
+    })
+    
+    createRedirect({
+        fromPath: "http://relaxed-feynman-adbdb7.netlify.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat",
+    })
+    createRedirect({
+        fromPath: "https://relaxed-feynman-adbdb7.netlify.com/*",
+        isPermanent: true,
+        redirectInBrowser: true,
+        toPath: "https://learnwars.com/:splat",
+    })
 
     const blogs = new Promise((resolve, reject) => {
         const query = graphql(`{
