@@ -42,44 +42,47 @@
     background:white; 
     z-index:5; 
     margin-bottom:20px; 
-    padding:20px 10px 5px 20px; 
+    /* padding:20px 10px 5px 20px;  */
+    padding:10px;   
+    /* border:1px solid black; */
 }
 
 .authorBlogsDiv {
     display:grid; 
     grid-template-rows:auto auto 50px; 
-    grid-template-columns: auto 300px;
+    grid-template-columns: auto 250px;
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
     grid-template-areas:
                 "header image"
                 "excerpt image"
                 "date image";
     font-family:"Raleway";
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+    /* border:1px solid black; */
 }
 
 .authorBlogsTitle {
     grid-area: header;
     font-family: 'Crete Round';
     cursor: pointer;
-    position: relative;    
+    position: relative;  
+    font-size:24px;  
 }
 
 .authorBlogsImg {
     grid-area: image;
 }
 
-.authorBlogsTitleSpan {
-    position: relative;
-}
-
 
 .authorBlogsExcerpt {
     grid-area: excerpt; 
     margin:auto; 
-    font-family:"Thasadith";
+    font-family:"Open Sans";
     cursor: pointer;
     text-decoration: none;
     transition: 1s ease;
+    font-size:14px;
 }
 
 .authorBlogsDate {

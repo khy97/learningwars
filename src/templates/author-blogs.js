@@ -20,7 +20,7 @@ export default function AuthorBlogPosts({data}) {
                 <div className={authorBlogStyles.authorBlogs} key={i}>
                     <div style={{color:`black`}}>
                         <div className={authorBlogStyles.authorBlogsDiv}>
-                            <h2 onClick={() => navigate(node.frontmatter.path)} className={authorBlogStyles.authorBlogsTitle}><span className={authorBlogStyles.authorBlogsTitleSpan}>{node.frontmatter.title}</span></h2>
+                            <h2 onClick={() => navigate(node.frontmatter.path)} className={authorBlogStyles.authorBlogsTitle}>{node.frontmatter.title}</h2>
                             <Img fluid={node.frontmatter.cover_image.childImageSharp.fluid} className={authorBlogStyles.authorBlogsImg}/>
                             <div className={authorBlogStyles.authorBlogsDate}>
                                 <span>{node.frontmatter.date}</span>
@@ -43,7 +43,7 @@ export const postQuery = graphql`
         ) {
           edges {
             node {
-              excerpt(pruneLength: 200)
+              excerpt(pruneLength: 260)
               frontmatter {
                 date(formatString: "MMMM Do YYYY")
                 title

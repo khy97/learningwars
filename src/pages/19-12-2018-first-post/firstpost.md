@@ -97,30 +97,34 @@ For eg:
 
 Then we override the `run()` method,
 
-    class MultithreadDemo1 extends Thread {
-	    @Override
-	    public void run()  {
-            for(int i = 0; i < 100; i++) {
-                System.out.print("Thread-1");
-            }
-            System.out.println("Finished Running MultithreadDemo1");
-	    }
-	}
+```java
+class MultithreadDemo1 extends Thread {
+    @Override
+    public void run()  {
+        for(int i = 0; i < 100; i++) {
+            System.out.print("Thread-1");
+        }
+        System.out.println("Finished Running MultithreadDemo1");
+    }
+}
+```
 
 The code which is meant to be executed in a separate thread from the `main()` thread should be written inside the `run()` method.
 
 Then in the `main()` function, we create a new MultithreadDemo object and start the thread.
 
-    public class MultithreadDemoTest  {
-	    public static void main(String[] args)  {
-	        Thread t1 = new MultithreadDemo1();
-		    
-	        // start()???
-	        t1.start();
+```java
+public class MultithreadDemoTest  {
+    public static void main(String[] args)  {
+        Thread t1 = new MultithreadDemo1();
+        
+        // start()???
+        t1.start();
 
-		    System.out.println("Done with Main Thread");
-	    }
+        System.out.println("Done with Main Thread");
     }
+}
+```
 
 Now the code snippet above will create a new Thread t1, and then starts the new thread! So when this code runs, there will be 2 threads running: `main()` thread and the `MultithreadDemo` thread. 
 
