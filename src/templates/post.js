@@ -1,42 +1,118 @@
 import React from 'react';
-import { graphql, Link, navigate } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Img from "gatsby-image"
+import Share from '../components/Share.jsx'
+// import './MyBlogPost.css'
 import authors from './Authors';
-import postStyle from './post.module.css'
 
-export default function Template({data}) {
-    const {markdownRemark : post} = data;
+class Template extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            x:null,
+            y:null
+        }
+    }
 
-    return (
-        <Layout>
-            <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} />
-            <div className={postStyle.postMain}>
-                <div style={{width:`70%`, height:`70%`, margin:`auto`}}>
-                    <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} style={{marginBottom:`40px`}} />
-                </div>
-                <h1 style={{fontFamily:`Crete Round`}}>{post.frontmatter.title}</h1>
-                <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}}>BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16}}/>
-                <div style={{marginTop:50, border: `5px solid black`, padding:`5px 30px 20px`, cursor:`pointer`}} onClick={() => navigate(`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`)}>
-                    <div className={postStyle.postAut}>
-                        <img src={require(`../images/${post.frontmatter.author}.png`)} alt="" className={postStyle.postAutImg}/>
-                        <div className={postStyle.postAutInf}>
-                            <span style={{fontFamily: `Crete Round`}}>{post.frontmatter.author}</span>
-                            <span style={{fontFamily: `Open Sans`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</span>
-                            <span style={{fontFamily: `Open Sans`}}>{post.frontmatter.date}</span>
+    componentDidMount() {
+        var x = this.state.x
+        var y = this.state.y
+        x = window.matchMedia("(max-width: 700px)")
+        y = window.matchMedia("(max-width: 900px)")
+        this.authorHor(x) // Call listener function at run time
+        this.containerWidth(y) // Call listener function at run time
+        x.addListener(this.authorHor) // Attach listener function on state changes 
+        y.addListener(this.containerWidth) // Attach listener function on state changes 
+        this.setState({x,y})
+    }
+    
+    componentWillUnmount() {
+        this.state.x.removeListener(this.authorHor) // Attach listener function on state changes 
+        this.state.y.removeListener(this.containerWidth) // Attach listener function on state changes 
+        this.setState({x:null,y:null})
+    }
+    
+    authorHor = (x) => {
+        if (x.matches) { // If media query matches
+            document.getElementById("authorcard").classList.remove("horizontal")
+        } else {
+            document.getElementById("authorcard").classList.add("horizontal")
+        }
+    }
+
+    containerWidth = (x) => {
+        if (x.matches) { // If media query matches
+            document.getElementById("postContainer").style.width='85%'
+        } else {
+            document.getElementById("postContainer").style.width='65%'
+        }
+    }
+
+    render() {
+        const {markdownRemark : post, site} = this.props.data;
+        return (
+            <Layout>
+                <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} image={post.frontmatter.cover_image.publicURL}/>
+                <div className="container" id="postContainer">
+                    <div className="row">
+                        <div className="col s12 m12 l10 offset-l1">
+                            <img src={post.frontmatter.cover_image.publicURL} alt=""/>
                         </div>
                     </div>
+                    <div className="row">
+                        <h1 className="center-align" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}}>{post.frontmatter.title}</h1>
+                        <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}} className="center">BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
+                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16}}/>
+                    </div>
+                    <div className="row">
+                        {/* <div className="col s12 m6 l6 offset-m3 offset-l3"> */}
+                            <div className="card horizontal" id="authorcard">
+                                <div className="card-image">
+                                    <img src={require(`../images/${post.frontmatter.author}.jpg`)} alt="" className="responsive-img" style={{padding:0, margin:0}}/>
+                                </div>
+                                <div className="card-stacked">
+                                    <div className="card-content" style={{display:`flex`, justifyContent:`space-around`, alignItems:`center`, flexDirection:`column`, padding:15}}>
+                                        <div style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:30}}>{post.frontmatter.author}</div>
+                                        <div style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:12}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
+                                        <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:12,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
+                                    </div>
+                                    <div className="card-action" style={{display:`flex`, justifyContent:`center`, alignItems:`center`}}>
+                                        <Link style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textAlign:`center`}} to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`}>Read More Articles</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        {/* </div> */}
+                    </div>
+                    <div>
+                        Share: 
+                        <Share 
+                            socialConfig={{
+                                twitterHandle:`${site.twitterHandle}`,
+                                config: {
+                                    url: `${site.siteMetadata.url}${post.frontmatter.path}`,
+                                    title: `${post.frontmatter.title}`,
+                                },
+                            }}
+                        />
+                        <JustComments />
+                    </div>
                 </div>
-            </div>
-            <JustComments />
-        </Layout>
-    )
+            </Layout>
+        )
+    }
 }
+
+export default Template
 
 export const postQuery = graphql`
     query BlogPostByPath($path: String!) {
+        site {
+            siteMetadata {
+                url
+                twitterHandle
+            }
+        }
         markdownRemark(frontmatter: {path: {eq: $path}}) {
             html,
             frontmatter {
@@ -46,11 +122,6 @@ export const postQuery = graphql`
                 date(formatString: "MMMM Do YYYY")
                 cover_image {
                     publicURL
-                    childImageSharp {
-                      fluid(maxHeight:500) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
                 }
             }
         }

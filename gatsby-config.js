@@ -3,7 +3,9 @@ module.exports = {
       title: `LearnWars - Blog For Passionate Learners`,
       description: `Teach what you learn, Learn what you teach. Visit our website to read about what the writers are learning!`,
       author: `@huiyeonkim`,
-      siteUrl: `https://learnwars.com`
+      twitterHandle:`@LearnWars`,
+      siteUrl: `https://learnwars.com`,
+      url: `https://learnwars.com`
     },
     plugins: [
         {
@@ -81,7 +83,7 @@ module.exports = {
             ]
         }
     },
-   
+    `gatsby-plugin-sass`,
     `gatsby-remark-copy-linked-files`,
     `gatsby-plugin-sharp`,
     {

@@ -1,9 +1,7 @@
 import React from 'react'
-import { graphql,navigate } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import Layout from '../components/layout' 
 import SEO from '../components/seo'
-import indexStyles from './index.module.css'
-import Img from "gatsby-image"
 
 class IndexPage extends React.Component {
   render() {
@@ -11,25 +9,29 @@ class IndexPage extends React.Component {
     return(
         <Layout>
           <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} />
-          <div>
-            <h1 style={{fontSize:22}}>Welcome to LearnWars!</h1>
-            {postList.edges.map(({node}, i) => (
-              <div className={indexStyles.postBox} key={i} >
-                <div style={{width:`100%`, height:`100%`}}>
-                  <div className={indexStyles.postGrid}>
-                    <div className={indexStyles.postImage} onClick={() => navigate(node.frontmatter.path)}>
-                        <Img fixed={node.frontmatter.cover_image.childImageSharp.fixed} className={indexStyles.postImg} alt={"Article Cover Image"}/>
+          <div className="container">
+            <div className="row">
+                <h1 style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}} className="center-align">Welcome to LearnWars.</h1>
+            </div>
+            <div className="row">
+                {postList.edges.map(({node}, i) => (              
+                    <div className="col s12 m6 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`,}} key={i}>
+                        <div className="card" style={{ boxShadow:`none`}}>
+                            <div className="card-image">
+                                <img src={node.frontmatter.cover_image.publicURL} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
+                            </div>
+                            <div className="card-content" style={{padding:`15px 5px 15px 5px`,}}>
+                                <span className="card-title" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,}}>{node.frontmatter.title}</span>
+                                <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:14}}>{node.excerpt}</p>
+                            </div>
+                            <div className="card-action" style={{padding:`10px 5px`}}>
+                                <div onClick={(e) => {e.stopPropagation(); navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`)}} style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`}} className="blue-text text-darken-2">Huiyeon Kim</div>
+                                <div style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:10}}>{node.frontmatter.date}</div>
+                            </div>
+                        </div>
                     </div>
-                    <h2 className={indexStyles.postHeader} onClick={() => navigate(node.frontmatter.path)}>{node.frontmatter.title}</h2>
-                    <div className={indexStyles.postAuthor}>
-                      <span>{node.frontmatter.date}</span>
-                      <span>Written By: <div onClick={() => {navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`); return true;}} className={indexStyles.postAuthorName} role="link">{node.frontmatter.author}</div></span>
-                    </div>
-                    <p className={indexStyles.postExcerpt} onClick={() => navigate(node.frontmatter.path)}>{node.excerpt}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+                ))}
+            </div>
           </div>
         </Layout>
     )
@@ -43,7 +45,7 @@ export const listQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 240)
+          excerpt(pruneLength: 180)
           frontmatter {
             date(formatString: "MMMM Do YYYY")
             title
@@ -51,11 +53,6 @@ export const listQuery = graphql`
             path
             cover_image {
                 publicURL
-                childImageSharp {
-                    fixed(width: 200) {
-                        ...GatsbyImageSharpFixed
-                    }
-                }
             }
           }
         }

@@ -25,14 +25,14 @@ class Header extends React.Component {
           <Link to='/'>
             <img src={require('../images/LearnWars.png')} alt=""  className={headerStyles.headerImg}/>
           </Link>
-          <nav className={headerStyles.headerNav}>
+          <div className={headerStyles.headerNav}>
             <ul className={headerStyles.headerList}>
-              <li className={headerStyles.navItem}><Link to="/" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Home</Link></li>
+              <li className={headerStyles.navItem}><Link to="/" className={headerStyles.navItemLink} style={{textDecoration:`none`, background:`none`}}>Home</Link></li>
               <li className={headerStyles.navItem}><Link to="/author" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Authors</Link></li>
               {/* <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`}}>Archive</Link></li> */}
               {/* <li className={headerStyles.navItem}><Link to="/contact" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Contact Us</Link></li> */}
             </ul>
-          </nav>
+          </div>
         </div>
       </div>
     )
