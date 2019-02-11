@@ -22,8 +22,8 @@ Until now, if you never searched about Multithreading, you wouldnt have heard of
 
 Lets break this statement down by taking a look at this code.
 
-```java
-for(int i = 0; i < 1000000; i++_) {
+```
+for(int i = 0; i < 1000000; i++) {
     x += 1;	
 }
 System.out.println(x)
@@ -73,7 +73,7 @@ There are 2 ways of using the synchronized keyword:
 
 Lets take an example of a method named `increase()`
 
-```java
+```
 public void increase() {
     // x is a shared resource
     x = x + 1;
@@ -82,7 +82,7 @@ public void increase() {
 
 As we know, if this is used in a multithreaded program, it will DEFINITELY cause a race condition. By using Method Synchronization, we can change it to be
 
-```java
+```
 public synchronized void increase() {
     // x is a shared resource
     x = x + 1;
@@ -96,7 +96,7 @@ This method can completely remove the Race Condition of this method! BUT what if
 ### 2. Block Synchronization
 Lets say in the example above, there were additional code such as
 
-```java
+```
 public void increase() {
     for(int i = 0; i < 1000000; i++) {
         //DO SOMETHING 
@@ -111,7 +111,7 @@ If we were to use method synchronization, we will not be maximizing the capacity
 
 Lets see how to implement it!
 
-```java
+```
 public void increase() {
     for(int i = 0; i < 1000000; i++) {
         //DO SOMETHING 

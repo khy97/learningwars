@@ -45,7 +45,7 @@ class Template extends React.Component {
         if (x.matches) { // If media query matches
             document.getElementById("postContainer").style.width='85%'
         } else {
-            document.getElementById("postContainer").style.width='65%'
+            document.getElementById("postContainer").style.width='55%'
         }
     }
 
@@ -63,7 +63,7 @@ class Template extends React.Component {
                     <div className="row">
                         <h1 className="center-align" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}}>{post.frontmatter.title}</h1>
                         <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}} className="center">BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16}}/>
+                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16, color:`black`}}/>
                     </div>
                     <div className="row">
                         {/* <div className="col s12 m6 l6 offset-m3 offset-l3"> */}
