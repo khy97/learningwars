@@ -39,6 +39,14 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 content: `website`,
               },
               {
+                property: `og:url`,
+                content: `https://learnwars.com`,
+              },
+              {
+                property: `og:site_name`,
+                content: `Learn Wars`,
+              },
+              {
                 name: `twitter:card`,
                 content: `summary`,
               },
@@ -53,6 +61,14 @@ function SEO({ description, lang, meta, keywords, title, image }) {
               {
                 name: `twitter:description`,
                 content: metaDescription,
+              },
+              {
+                name: `twitter:image`,
+                content: image,
+              },
+              {
+                name: `twitter:site`,
+                content: `https://learnwars.com`,
               },
             ]
               .concat(

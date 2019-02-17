@@ -9,7 +9,7 @@ class IndexPage extends React.Component {
     const postList = this.props.data.allMarkdownRemark;
     return(
         <Layout>
-          <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} />
+          <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={require('../images/LearnWars.png')}/>
           <div className="container">
             <div className="row">
                 <h1 style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}} className="center-align">Welcome to LearnWars.</h1>
