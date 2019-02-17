@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Share from '../components/Share.jsx'
+// import Share from '../components/Share.jsx'
 // import './MyBlogPost.css'
 import authors from './Authors';
 
@@ -50,7 +50,7 @@ class Template extends React.Component {
     }
 
     render() {
-        const {markdownRemark : post, site} = this.props.data;
+        const {markdownRemark : post} = this.props.data;
         return (
             <Layout>
                 <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} image={post.frontmatter.cover_image.publicURL}/>
@@ -85,7 +85,7 @@ class Template extends React.Component {
                         {/* </div> */}
                     </div>
                     <div>
-                        Share: 
+                        {/* Share: 
                         <Share 
                             socialConfig={{
                                 twitterHandle:`${site.twitterHandle}`,
@@ -94,7 +94,7 @@ class Template extends React.Component {
                                     title: `${post.frontmatter.title}`,
                                 },
                             }}
-                        />
+                        /> */}
                         <JustComments />
                     </div>
                 </div>
