@@ -3,36 +3,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 class AuthorTemplate extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         x:null
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     var x = this.state.x
-    //     x = window.matchMedia("(max-width: 700px)")
-    //     this.myFunction(x) // Call listener function at run time
-    //     x.addListener(this.myFunction) // Attach listener function on state changes 
-    //     this.setState({x})
-    // }
-    
-    // componentWillUnmount() {
-    //     this.state.x.removeListener(this.myFunction) // Attach listener function on state changes 
-    //     this.setState({x:null})
-    // }
-    
-    // myFunction = (x) => {
-    //     if (x.matches) { // If media query matches
-    //         document.getElementById("authorcard").classList.remove("horizontal")
-    //         document.getElementById("authorcard").classList.remove("small")
-    //     } else {
-    //         document.getElementById("authorcard").classList.add("horizontal")
-    //         document.getElementById("authorcard").classList.add("small")
-    //     }
-    // }
-
     render() {
         return (           
             <div className="container">

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
       title: `LearnWars - Blog For Passionate Learners`,
-      description: `Teach what you learn, Learn what you teach. Visit our website to read about what the writers are learning!`,
+      description: `Learning something can be stressful and tiring. Studies show that Writing about what you learn not only helps in making you understand better but also remembering it for a longer time. So come aboard, write what you learn and learn what you write!`,
       author: `@huiyeonkim`,
       twitterHandle:`@LearnWars`,
       siteUrl: `https://learnwars.com`,
