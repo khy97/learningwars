@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, navigate } from 'gatsby'
 import Layout from '../components/layout' 
 import SEO from '../components/seo'
+import './index.css'
 
 class IndexPage extends React.Component {
   render() {
@@ -15,13 +16,13 @@ class IndexPage extends React.Component {
             </div>
             <div className="row">
                 {postList.edges.map(({node}, i) => (              
-                    <div className="col s12 m6 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`,}} key={i}>
+                    <div className="col s12 m6 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`, maxHeight:440, marginTop:40}} key={i}>
                         <div className="card" style={{ boxShadow:`none`}}>
                             <div className="card-image">
                                 <img src={node.frontmatter.cover_image.publicURL} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
                             </div>
                             <div className="card-content" style={{padding:`15px 5px 15px 5px`,}}>
-                                <span className="card-title" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`,}}>{node.frontmatter.title}</span>
+                                <span className="card-title" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontWeight:`bold`}}>{node.frontmatter.title}</span>
                                 <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:14}}>{node.excerpt}</p>
                             </div>
                             <div className="card-action" style={{padding:`10px 5px`}}>

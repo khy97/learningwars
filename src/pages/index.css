@@ -1,0 +1,15 @@
+blockquote {
+    border-left-color: gray;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(235, 234, 234);
+}
+
+blockquote > p {
+    color:rgb(116, 114, 114);
+}
+
+blockquote > p > a {
+    color:blue;
+}
