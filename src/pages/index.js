@@ -23,10 +23,12 @@ class IndexPage extends React.Component {
                             </div>
                             <div className="card-content" style={{padding:`15px 5px 15px 5px`,}}>
                                 <span className="card-title" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontWeight:`bold`}}>{node.frontmatter.title}</span>
+                                
                                 <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:14}}>{node.excerpt}</p>
                             </div>
                             <div className="card-action" style={{padding:`10px 5px`}}>
-                                <div onClick={(e) => {e.stopPropagation(); navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`)}} style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`}} className="blue-text text-darken-2">Huiyeon Kim</div>
+                                <div onClick={(e) => {e.stopPropagation(); navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`)}} style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`}} className="blue-text text-darken-2">{node.frontmatter.author}</div>
+                                
                                 <div style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:10}}>{node.frontmatter.date}</div>
                             </div>
                         </div>
