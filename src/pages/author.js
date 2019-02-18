@@ -27,15 +27,22 @@ class Author extends React.Component {
         return (
             <Layout>
                 <SEO title="Authors" keywords={[`Learning Wars`, `Blog`, `Authors`, `Teach`, `Tech`]} />
-                {this.state.authors.map((author, i) => (
-                    <AuthorTemplate 
-                        authorName={author.authorName}
-                        authorTag={author.authorTag}
-                        authorDesc={author.authorDesc}
-                        linkedIn={author.linkedIn}
-                        key={i}
-                    />
-                ))}
+                <div className="row">
+                    <h1 style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}} className="center-align">Here are your Authors</h1>
+                </div>
+                <div className="container">
+                    <div className="row">
+                        {this.state.authors.map((author, i) => (
+                            <AuthorTemplate 
+                                authorName={author.authorName}
+                                authorTag={author.authorTag}
+                                authorDesc={author.authorDesc}
+                                linkedIn={author.linkedIn}
+                                key={i}
+                            />
+                        ))}
+                    </div>
+                </div>
             </Layout>
         )
     }
