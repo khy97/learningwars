@@ -38,11 +38,11 @@ class Header extends React.Component {
                 <div className="container nav-wrapper" style={{padding:`0px 25px`, position:`relative`, height:`100%`, width:`95%`}}>
                     <div style={{ position:`absolute`, top:`50%`, transform:`translateY(-50%)`, display:`flex`, justifyContent:`flex-start`, alignItems:`center`}} className="brand-logo">
                         <img src={require('../images/icon.png')} alt=""  style={{height:50, margin:0, cursor:`pointer`}} onClick={() => navigate('/')}/>
-                        <span style={{color:`black`, paddingLeft:5, fontFamily:`Crimson Text`, fontSize:20, cursor:`pointer`}} onClick={() => navigate('/')}>Learn Wars</span>
+                        <span style={{color:`black`, paddingLeft:5, fontFamily:`Crimson Text, serif`, fontSize:20, cursor:`pointer`}} onClick={() => navigate('/')}>Learn Wars</span>
                     </div>
                     <ul id="nav-mobile" className="right hide-on-med-and-down" style={{zIndex:1000, height:`100%`}}>
-                        <li style={{height:`100%`, margin:0}}><Link to={"/"} style={{color:`black`, fontFamily:`Crimson Text`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Home</Link></li>
-                        <li style={{height:`100%`, margin:0}}><Link to={"/author"} style={{color:`black`, fontFamily:`Crimson Text`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Authors</Link></li>
+                        <li style={{height:`100%`, margin:0}}><Link to={"/"} style={{color:`black`, fontFamily:`Crimson Text, serif`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Home</Link></li>
+                        <li style={{height:`100%`, margin:0}}><Link to={"/author"} style={{color:`black`, fontFamily:`Crimson Text, serif`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Authors</Link></li>
                     </ul>
                 </div>
             </nav>

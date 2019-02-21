@@ -13,9 +13,9 @@ class AuthorTemplate extends React.Component {
                         <Img fluid={this.props.authorImage}/> 
                     </div>
                     <div className="col s12 l8">
-                        <h2 style={{fontFamily:`Crimson Text`}}>{this.props.authorName}</h2>
-                        <h4 style={{fontFamily:`Crimson Text`, fontStyle:`italic`}}>{this.props.authorTag}</h4>
-                        <p style={{fontFamily:`Crimson Text`,color:`grey`}}>{this.props.authorDesc}</p>
+                        <h2 style={{fontFamily:`Crimson Text, serif`}}>{this.props.authorName}</h2>
+                        <h4 style={{fontFamily:`Crimson Text, serif`, fontStyle:`italic`}}>{this.props.authorTag}</h4>
+                        <p style={{fontFamily:`Crimson Text, serif`,color:`grey`}}>{this.props.authorDesc}</p>
                         <Link to={`/author-blogs/${this.props.authorName.split(" ").join('_')}`} style={{fontFamily:`Crimson Text`}}>Read Articles</Link>
                     </div>
                 </div>

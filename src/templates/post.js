@@ -62,9 +62,9 @@ class Template extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <h1 className="center-align" style={{fontFamily:`Crimson Text`, fontSize:40}}>{post.frontmatter.title}</h1>
+                        <h1 className="center-align" style={{fontFamily:`Crimson Text, serif`, fontSize:40}}>{post.frontmatter.title}</h1>
                         <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}} className="center">BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Crimson Text`, fontSize:21,lineHeight:1.4, color:`#515151`}}/>
+                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Crimson Text, serif`, fontSize:21,lineHeight:1.4, color:`#515151`}}/>
                     </div>
                     <div className="row">
                         <div className="card horizontal" id="authorcard">
@@ -73,9 +73,9 @@ class Template extends React.Component {
                             </div>
                             <div className="card-stacked">
                                 <div className="card-content" style={{display:`flex`, justifyContent:`space-around`, alignItems:`center`, flexDirection:`column`, padding:15}}>
-                                    <div style={{fontFamily:`Crimson Text`, fontSize:30}}>{post.frontmatter.author}</div>
-                                    <div style={{fontFamily:`Crimson Text`, fontSize:14}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
-                                    <p style={{fontFamily:`Crimson Text`, fontSize:13,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
+                                    <div style={{fontFamily:`Crimson Text, serif`, fontSize:30}}>{post.frontmatter.author}</div>
+                                    <div style={{fontFamily:`Crimson Text, serif`, fontSize:14}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
+                                    <p style={{fontFamily:`Crimson Text, serif`, fontSize:13,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
                                 </div>
                                 <div className="card-action" style={{display:`flex`, justifyContent:`center`, alignItems:`center`}}>
                                     <Link style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textAlign:`center`}} to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`}>Read More Articles</Link>

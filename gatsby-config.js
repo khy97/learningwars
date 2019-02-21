@@ -32,7 +32,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Montserrat`,
           `Thasadith`, // you can also specify font weights and styles
           `Crimson Text`
         ],
