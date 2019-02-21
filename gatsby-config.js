@@ -19,6 +19,13 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -26,10 +33,7 @@ module.exports = {
       options: {
         fonts: [
           `Montserrat`,
-          `Raleway`,
           `Thasadith`, // you can also specify font weights and styles
-          `Crete Round`,
-          `Open Sans`,
           `Crimson Text`
         ],
       },

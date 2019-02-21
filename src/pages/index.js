@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, navigate } from 'gatsby'
+import Img from 'gatsby-image';
 import Layout from '../components/layout' 
 import SEO from '../components/seo'
 import './index.css'
@@ -17,7 +18,7 @@ class IndexPage extends React.Component {
                         <div key={i}>
                             <div className="row section" style={{padding:`40px 15px`}}>
                                 <div className="col s12 m12 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`}}>
-                                    <img src={node.frontmatter.cover_image.publicURL} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
+                                    <Img fluid={node.frontmatter.cover_image.childImageSharp.fluid} alt={node.frontmatter.title}/>
                                 </div>
                                 <div className="col s12 m12 l8" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`}}>
                                     <h2 style={{fontFamily:`Crimson Text`}}>{node.frontmatter.title}</h2>
@@ -65,6 +66,11 @@ export const listQuery = graphql`
             path
             cover_image {
                 publicURL
+                childImageSharp {
+                    fluid(maxWidth:1800){
+                        ...GatsbyImageSharpFluid
+                    }
+                }
             }
           }
         }

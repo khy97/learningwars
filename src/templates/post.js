@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Img from 'gatsby-image'
 // import Share from '../components/Share.jsx'
 // import './MyBlogPost.css'
 import authors from './Authors';
@@ -57,7 +58,7 @@ class Template extends React.Component {
                 <div className="container" id="postContainer">
                     <div className="row">
                         <div className="col s12 m12 l10 offset-l1">
-                            <img src={post.frontmatter.cover_image.publicURL} alt=""/>
+                            <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid}/>
                         </div>
                     </div>
                     <div className="row">
@@ -95,12 +96,6 @@ export default Template
 
 export const postQuery = graphql`
     query BlogPostByPath($path: String!) {
-        site {
-            siteMetadata {
-                url
-                twitterHandle
-            }
-        }
         markdownRemark(frontmatter: {path: {eq: $path}}) {
             html,
             frontmatter {
@@ -110,6 +105,11 @@ export const postQuery = graphql`
                 date(formatString: "MMMM Do YYYY")
                 cover_image {
                     publicURL
+                    childImageSharp {
+                        fluid(maxWidth:1800){
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
                 }
             }
         }

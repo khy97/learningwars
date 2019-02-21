@@ -1,4 +1,5 @@
 import React from 'react';
+import {graphql} from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import AuthorTemplate from '../templates/authorTemplate';
@@ -8,19 +9,26 @@ class Author extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authors: []
+            authors: [],
+            authorImage: {}
         }
     }
 
     componentDidMount() {
         let authors = []
+        let authorImage = {}
         for(var key in authorss) {
             if(authorss.hasOwnProperty(key)) {
                 authors.push(authorss[key])
+                this.props.data.allImageSharp.edges.forEach(node => {
+                    if(node.node.fluid.originalName === authorss[key].authorName+".jpg") {
+                        authorImage[authorss[key].authorName] = node.node.fluid
+                    }
+                })
             }
         }
-
-        this.setState({authors})
+        console.log(authorImage)
+        this.setState({authors, authorImage})
     }
 
     render() {
@@ -32,13 +40,14 @@ class Author extends React.Component {
                         <div className="col s12 m12 l8">
                             {this.state.authors.map((author, i) => (
                                 <AuthorTemplate 
-                                authorName={author.authorName}
-                                authorTag={author.authorTag}
-                                authorDesc={author.authorDesc}
-                                linkedIn={author.linkedIn}
-                                key={i}
+                                    authorName={author.authorName}
+                                    authorTag={author.authorTag}
+                                    authorDesc={author.authorDesc}
+                                    linkedIn={author.linkedIn}
+                                    authorImage={this.state.authorImage[author.authorName]}
+                                    key={i}
                                 />
-                                ))}
+                            ))}
                         </div>
                         <div className="col s12 m12 l3 offset-l1">
                             <div className="row section" style={{ padding:`35px 10px`, marginBottom:0}}>
@@ -59,3 +68,18 @@ class Author extends React.Component {
 }
 
 export default Author;
+
+
+export const ImageQuery = graphql`
+  query ImageQuery {
+    allImageSharp {
+      edges {
+        node {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+            originalName
+          }
+        }
+      }
+    }
+  }`
