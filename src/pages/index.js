@@ -12,28 +12,37 @@ class IndexPage extends React.Component {
           <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={require('../images/LearnWars.png')}/>
           <div className="container">
             <div className="row">
-                <h1 style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}} className="center-align">Welcome to LearnWars.</h1>
-            </div>
-            <div className="row">
-                {postList.edges.map(({node}, i) => (              
-                    <div className="col s12 m6 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`, maxHeight:440, marginTop:40}} key={i}>
-                        <div className="card" style={{ boxShadow:`none`}}>
-                            <div className="card-image">
-                                <img src={node.frontmatter.cover_image.publicURL} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
+                <div className="col s12 m12 l8">
+                    {postList.edges.map(({node}, i) => (
+                        <div key={i}>
+                            <div className="row section" style={{padding:`40px 15px`}}>
+                                <div className="col s12 m12 l4" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`}}>
+                                    <img src={node.frontmatter.cover_image.publicURL} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
+                                </div>
+                                <div className="col s12 m12 l8" onClick={(e) => {e.stopPropagation(); navigate(node.frontmatter.path)}} style={{cursor:`pointer`}}>
+                                    <h2 style={{fontFamily:`Crimson Text`}}>{node.frontmatter.title}</h2>
+                                    <h3 onClick={(e) => {e.stopPropagation(); navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`,{state:{author:node.frontmatter.author}})}} style={{fontFamily:`Crimson Text`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`, fontSize:14}} className="blue-text text-darken-2"><span style={{color:`gray`}}>Written By: </span>{node.frontmatter.author}</h3>
+                                    <p style={{fontFamily:`Crimson Text`, fontSize:15}}>{node.excerpt}</p>
+                                    <span style={{fontFamily:`Crimson Text`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`, fontSize:14}}>{node.frontmatter.date}</span>
+                                </div>
                             </div>
-                            <div className="card-content" style={{padding:`15px 5px 15px 5px`,}}>
-                                <span className="card-title" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontWeight:`bold`}}>{node.frontmatter.title}</span>
-                                
-                                <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:14}}>{node.excerpt}</p>
-                            </div>
-                            <div className="card-action" style={{padding:`10px 5px`}}>
-                                <div onClick={(e) => {e.stopPropagation(); navigate(`/author-blogs/${node.frontmatter.author.split(" ").join("_")}`)}} style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textTransform:`none`, textDecoration:`none`, background:`transparent`, border:`none`, cursor:`pointer`}} className="blue-text text-darken-2">{node.frontmatter.author}</div>
-                                
-                                <div style={{fontFamily:`-apple-system,BlinknMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:10}}>{node.frontmatter.date}</div>
-                            </div>
+                            <div className="divider"></div>
                         </div>
+                    ))}
+                </div>
+                <div className="col s12 m12 l3 offset-l1" >
+                    <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
+                        <h1 style={{fontFamily:`Crimson Text`, fontWeight:`bold`}}>About Learn Wars</h1>
+                        <p style={{fontFamily:`Crimson Text`, color:`grey`}}>Learning something can be stressful and tiring. Studies show that Writing about what you learn not only helps in making you understand better but also remembering it for a longer time. <br/><br/>
+                        This website is for passionate learners who wants to write and share about what they are learning, whether it be technology or finance.</p>
                     </div>
-                ))}
+                    <div className="divider"></div>
+                    <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
+                        <h3 style={{fontFamily:`Crimson Text`}}>Want to Write?</h3>
+                        <p style={{fontFamily:`Crimson Text`, color:`grey`}}> <span className="blue-text text-darken-2" style={{cursor:`pointer`}} onClick={() => window.location="mailto:gnldus59112@gmail.com"}>Click Here</span> and tell us what you want to write about!</p>
+                    </div>
+                    <div className="divider"></div>
+                </div>
             </div>
           </div>
         </Layout>
@@ -48,7 +57,7 @@ export const listQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 180)
+          excerpt(pruneLength: 300)
           frontmatter {
             date(formatString: "MMMM Do YYYY")
             title

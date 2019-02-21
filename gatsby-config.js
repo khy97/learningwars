@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `LearnWars - Blog For Passionate Learners`,
+    title: `Learn Wars - Blog For Passionate Learners`,
     description: `Learning something can be stressful and tiring. Studies show that Writing about what you learn not only helps in making you understand better but also remembering it for a longer time. So come aboard, write what you learn and learn what you write!`,
     author: `@huiyeonkim`,
     twitterHandle: `@LearnWars`,
@@ -8,12 +8,6 @@ module.exports = {
     url: `https://learnwars.com`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/my-sitemap.xml`,
-      },
-    },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-transformer-sharp`,
@@ -36,6 +30,7 @@ module.exports = {
           `Thasadith`, // you can also specify font weights and styles
           `Crete Round`,
           `Open Sans`,
+          `Crimson Text`
         ],
       },
     },

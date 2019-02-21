@@ -49,7 +49,6 @@ exports.createPages = ({actions, graphql}) => {
         const query = graphql(`{
             allMarkdownRemark(
                   sort: { order: DESC, fields: [frontmatter___date] }
-                  filter: {frontmatter: {author: {eq: "Huiyeon Kim"}}}
             ) {
               edges {
                 node {
@@ -59,6 +58,9 @@ exports.createPages = ({actions, graphql}) => {
                     title
                     author
                     path
+                    cover_image {
+                        publicURL
+                    }
                   }
                 }
               }
@@ -72,6 +74,7 @@ exports.createPages = ({actions, graphql}) => {
             res.data.allMarkdownRemark.edges.forEach(({node}) => {
                 let author = node.frontmatter.author;
                 let authorName = author.split(' ').join("_");
+                console.log(res.data.allMarkdownRemark.edges)
                 createPage({
                     path:`/author-blogs/${authorName}`,
                     component: authorTemplate,

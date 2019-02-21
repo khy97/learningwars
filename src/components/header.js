@@ -1,50 +1,52 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
+import { Link, navigate } from 'gatsby'
 import React from 'react'
-import headerStyles from './header.module.css';
-
 class Header extends React.Component {
-  componentDidMount() {
-    const links = document.querySelectorAll(".navItemLink");
-    // var self = this;
-    links.forEach(link => {
-      links.forEach(l => {
-        l.classList.remove('navActive');
-      })
+    constructor(props) {
+        super(props);
+        this.state={
+            x:null,
+        }
+    }
 
-      link.addEventListener('click', function(e) {
-        console.log(e);
-      });
-    })
-  }
-
-  render() {
-    return (
-        <div className={headerStyles.headerMainDiv} >    
-        <div className={headerStyles.headerDiv}>
-          <Link to='/'>
-            <img src={require('../images/LearnWars.png')} alt=""  className={headerStyles.headerImg}/>
-          </Link>
-          <div className={headerStyles.headerNav}>
-            <ul className={headerStyles.headerList}>
-              <li className={headerStyles.navItem}><Link to="/" className={headerStyles.navItemLink} style={{textDecoration:`none`, background:`none`}}>Home</Link></li>
-              <li className={headerStyles.navItem}><Link to="/author" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Authors</Link></li>
-              {/* <li className={headerStyles.navItem}><Link to="/author" style={{textDecoration:`none`}}>Archive</Link></li> */}
-              {/* <li className={headerStyles.navItem}><Link to="/contact" className={headerStyles.navItemLink} style={{textDecoration:`none`}}>Contact Us</Link></li> */}
-            </ul>
-          </div>
-        </div>
-      </div>
-    )
-  }
+    componentDidMount() {
+        var x = this.state.x
+        x = window.matchMedia("(max-width: 980px)")
+        this.authorHor(x) // Call listener function at run time
+        x.addListener(this.authorHor) // Attach listener function on state changes 
+        this.setState({x})
+    }
+    
+    componentWillUnmount() {
+        this.state.x.removeListener(this.authorHor) // Attach listener function on state changes 
+        this.setState({x:null})
+    }
+    
+    authorHor = (x) => {
+        if (x.matches) { // If media query matches
+            document.querySelector(".brand-logo").style.transform = `translateX(-50%) translateY(-50%)`
+            document.querySelector(".brand-logo > span").style.fontSize = `16px`
+        } else {
+            document.querySelector(".brand-logo").style.transform = `translateY(-50%)`
+            document.querySelector(".brand-logo > span").style.fontSize = `20px`
+        }
+    }
+    render() {
+        return (
+            <nav style={{height:80, backgroundColor:`transparent`, boxShadow:`0 4px 12px 0 rgba(0,0,0,.05)`, color:`black`, borderTop:`4px solid #ba3e32`}} id="nav">
+                <div className="container nav-wrapper" style={{padding:`0px 25px`, position:`relative`, height:`100%`}}>
+                    <div style={{ position:`absolute`, top:`50%`, transform:`translateY(-50%)`, display:`flex`, justifyContent:`flex-start`, alignItems:`center`}} className="brand-logo">
+                        <img src={require('../images/icon.png')} alt=""  style={{height:50, margin:0, cursor:`pointer`}} onClick={() => navigate('/')}/>
+                        <span style={{color:`black`, paddingLeft:5, fontFamily:`Crimson Text`, fontSize:20, cursor:`pointer`}} onClick={() => navigate('/')}>Learn Wars</span>
+                    </div>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down" style={{zIndex:1000, height:`100%`}}>
+                        <li style={{height:`100%`, margin:0}}><Link to={"/"} style={{color:`black`, fontFamily:`Crimson Text`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Home</Link></li>
+                        <li style={{height:`100%`, margin:0}}><Link to={"/author"} style={{color:`black`, fontFamily:`Crimson Text`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Authors</Link></li>
+                    </ul>
+                </div>
+            </nav>
+        )
+    }
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

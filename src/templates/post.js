@@ -45,7 +45,7 @@ class Template extends React.Component {
         if (x.matches) { // If media query matches
             document.getElementById("postContainer").style.width='85%'
         } else {
-            document.getElementById("postContainer").style.width='55%'
+            document.getElementById("postContainer").style.width='60%'
         }
     }
 
@@ -61,40 +61,28 @@ class Template extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <h1 className="center-align" style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`}}>{post.frontmatter.title}</h1>
+                        <h1 className="center-align" style={{fontFamily:`Crimson Text`, fontSize:40}}>{post.frontmatter.title}</h1>
                         <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}} className="center">BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Open Sans`, fontSize:16, color:`black`}}/>
+                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Crimson Text`, fontSize:21,lineHeight:1.4, color:`#515151`}}/>
                     </div>
                     <div className="row">
-                        {/* <div className="col s12 m6 l6 offset-m3 offset-l3"> */}
-                            <div className="card horizontal" id="authorcard">
-                                <div className="card-image">
-                                    <img src={require(`../images/${post.frontmatter.author}.jpg`)} alt="" className="responsive-img" style={{padding:0, margin:0}}/>
+                        <div className="card horizontal" id="authorcard">
+                            <div className="card-image">
+                                <img src={require(`../images/${post.frontmatter.author}.jpg`)} alt="" className="responsive-img" style={{padding:0, margin:0}}/>
+                            </div>
+                            <div className="card-stacked">
+                                <div className="card-content" style={{display:`flex`, justifyContent:`space-around`, alignItems:`center`, flexDirection:`column`, padding:15}}>
+                                    <div style={{fontFamily:`Crimson Text`, fontSize:30}}>{post.frontmatter.author}</div>
+                                    <div style={{fontFamily:`Crimson Text`, fontSize:14}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
+                                    <p style={{fontFamily:`Crimson Text`, fontSize:13,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
                                 </div>
-                                <div className="card-stacked">
-                                    <div className="card-content" style={{display:`flex`, justifyContent:`space-around`, alignItems:`center`, flexDirection:`column`, padding:15}}>
-                                        <div style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:30}}>{post.frontmatter.author}</div>
-                                        <div style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:12}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
-                                        <p style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, fontSize:12,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
-                                    </div>
-                                    <div className="card-action" style={{display:`flex`, justifyContent:`center`, alignItems:`center`}}>
-                                        <Link style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textAlign:`center`}} to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`}>Read More Articles</Link>
-                                    </div>
+                                <div className="card-action" style={{display:`flex`, justifyContent:`center`, alignItems:`center`}}>
+                                    <Link style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textAlign:`center`}} to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`}>Read More Articles</Link>
                                 </div>
                             </div>
-                        {/* </div> */}
+                        </div>
                     </div>
                     <div>
-                        {/* Share: 
-                        <Share 
-                            socialConfig={{
-                                twitterHandle:`${site.twitterHandle}`,
-                                config: {
-                                    url: `${site.siteMetadata.url}${post.frontmatter.path}`,
-                                    title: `${post.frontmatter.title}`,
-                                },
-                            }}
-                        /> */}
                         <JustComments />
                     </div>
                 </div>
