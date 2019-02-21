@@ -10,7 +10,7 @@ export default function AuthorBlogPosts({pageContext}) {
     return (
         <Layout>
             <SEO title={pageContext.author} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`, `${pageContext.author}`]} description={authors[author.split(" ").join('_')].authorDesc}/>
-            <div className="container">
+            <div className="container" style={{width:`95%`}}>
                 <div className="row">
                     <div className="col s12 m12 l8">
                         {pageContext.nodes.map(({node}, i) => (

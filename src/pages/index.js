@@ -11,7 +11,7 @@ class IndexPage extends React.Component {
     return(
         <Layout>
           <SEO title="Home" keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={require('../images/LearnWars.png')}/>
-          <div className="container">
+          <div className="container" style={{width:`95%`}}>
             <div className="row">
                 <div className="col s12 m12 l8">
                     {postList.edges.map(({node}, i) => (
