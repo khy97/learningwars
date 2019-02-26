@@ -12,6 +12,20 @@ export default function AuthorBlogPosts({pageContext}) {
             <SEO title={pageContext.author} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`, `${pageContext.author}`]} description={authors[author.split(" ").join('_')].authorDesc}/>
             <div className="container" style={{width:`95%`}}>
                 <div className="row">
+                    <div className="col s12 m12 l3 right" >
+                        <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
+                            <img src={require(`../images/${pageContext.author}.jpg`)} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
+                            <h1 style={{fontFamily:`Crimson Text, serif`, fontWeight:`bold`}}>{pageContext.author}'s Blogs</h1>
+                            <h4 style={{fontFamily:`Crimson Text, serif`,fontSize:16, fontWeight:`normal`}}>{authors[author.split(" ").join('_')].authorTag}</h4>
+                            <p style={{fontFamily:`Crimson Text, serif`, color:`grey`}}>{authors[author.split(" ").join('_')].authorDesc}</p>
+                        </div>
+                        <div className="divider"></div>
+                        <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
+                            <h3 style={{fontFamily:`Crimson Text, serif`}}>Want to Write?</h3>
+                            <p style={{fontFamily:`Crimson Text, serif`, color:`grey`}}> <span className="blue-text text-darken-2" style={{cursor:`pointer`}} onClick={() => window.location="mailto:gnldus59112@gmail.com"}>Click Here</span> and tell us what you want to write about!</p>
+                        </div>
+                        <div className="divider"></div>
+                    </div>
                     <div className="col s12 m12 l8">
                         {pageContext.nodes.map(({node}, i) => (
                             <div key={i}>
@@ -28,20 +42,6 @@ export default function AuthorBlogPosts({pageContext}) {
                                 <div className="divider"></div>
                             </div>
                         ))}
-                    </div>
-                    <div className="col s12 m12 l3 offset-l1" >
-                        <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
-                            <img src={require(`../images/${pageContext.author}.jpg`)} className="responsive-img" alt={"Article Cover"} style={{margin:0}}/>
-                            <h1 style={{fontFamily:`Crimson Text, serif`, fontWeight:`bold`}}>{pageContext.author}'s Blogs</h1>
-                            <h4 style={{fontFamily:`Crimson Text, serif`,fontSize:16, fontWeight:`normal`}}>{authors[author.split(" ").join('_')].authorTag}</h4>
-                            <p style={{fontFamily:`Crimson Text, serif`, color:`grey`}}>{authors[author.split(" ").join('_')].authorDesc}</p>
-                        </div>
-                        <div className="divider"></div>
-                        <div className="row section" style={{padding:`40px 15px`, marginBottom:0}}>
-                            <h3 style={{fontFamily:`Crimson Text, serif`}}>Want to Write?</h3>
-                            <p style={{fontFamily:`Crimson Text, serif`, color:`grey`}}> <span className="blue-text text-darken-2" style={{cursor:`pointer`}} onClick={() => window.location="mailto:gnldus59112@gmail.com"}>Click Here</span> and tell us what you want to write about!</p>
-                        </div>
-                        <div className="divider"></div>
                     </div>
                 </div>
             </div>
