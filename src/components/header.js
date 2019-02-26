@@ -48,7 +48,7 @@ class Header extends React.Component {
                             <img src={require('../images/icon.png')} alt=""  style={{height:50, margin:0, cursor:`pointer`}} onClick={() => navigate('/')}/>
                             <span style={{color:`black`, paddingLeft:5, fontFamily:`Crimson Text, serif`, fontSize:20, cursor:`pointer`}} onClick={() => navigate('/')}>Learn Wars</span>
                         </div>
-                        <Link to="#" className="sidenav-trigger" data-target="mobile-menu"><FontAwesomeIcon style={{ fontSize: 30, color:`white` }} icon={['fas', 'bars']} className="vertical-align headerChange"  style={{color:`black`, marginTop:23, fontSize:30}}></FontAwesomeIcon></Link>
+                        <Link to="#" className="sidenav-trigger" data-target="mobile-menu"><FontAwesomeIcon icon={['fas', 'bars']} className="vertical-align headerChange"  style={{color:`black`, marginTop:23, fontSize:30}}></FontAwesomeIcon></Link>
                         <ul id="nav-mobile" className="right hide-on-med-and-down" style={{zIndex:1000, height:`100%`}}>
                             <li style={{height:`100%`, margin:0}}><Link to={"/"} style={{color:`black`, fontFamily:`Crimson Text, serif`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Home</Link></li>
                             <li style={{height:`100%`, margin:0}}><Link to={"/author"} style={{color:`black`, fontFamily:`Crimson Text, serif`, height:`100%`, display:`flex`, justifyContent:`center`, alignItems:`center`}}>Authors</Link></li>

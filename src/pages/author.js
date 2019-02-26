@@ -34,7 +34,7 @@ class Author extends React.Component {
     render() {
         return (
             <Layout>
-                <SEO title="Authors" keywords={[`Learning Wars`, `Blog`, `Authors`, `Teach`, `Tech`]} />
+                <SEO title="Authors" keywords={[`Learning Wars`, `Blog`, `Authors`, `Teach`, `Tech`]} path={'/author'}/>
                 <div className="container" style={{width:`95%`}}>
                     <div className="row">
                         <div className="col s12 m12 l8">

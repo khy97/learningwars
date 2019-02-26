@@ -6,10 +6,11 @@ import authors from './Authors';
 
 export default function AuthorBlogPosts({pageContext}) {
     const author = pageContext.author
+    console.log(pageContext)
     pageContext.nodes = pageContext.nodes.filter(node => node.node.frontmatter.author === pageContext.author)
     return (
         <Layout>
-            <SEO title={pageContext.author} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`, `${pageContext.author}`]} description={authors[author.split(" ").join('_')].authorDesc}/>
+            <SEO title={pageContext.author} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`, `${pageContext.author}`]} description={authors[author.split(" ").join('_')].authorDesc} path={pageContext.pathh} image={require(`../images/${pageContext.author}.jpg`)}/>
             <div className="container" style={{width:`95%`}}>
                 <div className="row">
                     <div className="col s12 m12 l3 right" >

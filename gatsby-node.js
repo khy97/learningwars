@@ -79,6 +79,7 @@ exports.createPages = ({actions, graphql}) => {
                     component: authorTemplate,
                     context: {
                         author:node.frontmatter.author,
+                        pathh:`/author-blogs/${authorName}`,
                         nodes: res.data.allMarkdownRemark.edges
                     }
                 })

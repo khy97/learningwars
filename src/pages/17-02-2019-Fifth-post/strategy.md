@@ -3,7 +3,7 @@ path: '/design-patterns-java-strategy-pattern'
 title: 'Design Patterns in Java - Strategy Pattern'
 author: 'Huiyeon Kim'
 date: '2019-02-17'
-cover_image: "./background.jpg"
+cover_image: './background.jpg'
 ---
 Today I'm going to talk to you about what I learnt most recently. The topic was brought up during a small talk session with one of a technical lead of a bank. After the talk, I decided to take up learning about Design Patterns and how I can prevent myself from writing spaghetti code and learning about the best practices while designing software. (Honestly I am always terrified about the fact that my code might be too messy.. Hopefully learning about some Design Patterns could help me a little at least).
 
