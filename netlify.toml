@@ -4,6 +4,6 @@
   force = true
 
 [[redirects]]
-  from = "https://learningwars.netlify.com/*"
+  from = "https://learningwars.com/*"
   to = "https://learnwars.com/:splat"
   force = true
