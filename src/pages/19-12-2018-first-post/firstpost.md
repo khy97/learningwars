@@ -3,7 +3,7 @@ path: '/concurrency-programming-part-1'
 title: 'Concurrency Programming in Java - Part 1'
 author: 'Huiyeon Kim'
 date: '2019-01-18'
-cover_image: "./Concurrency.png"
+cover_image: "./background.jpg"
 ---
 In this article, we will be taking a look at Concurrency Programming and Multi-threading, a critical programming concept for serious programmers who want to make their code faster.  I tried to make this programming concept as easy as possible so hopefully beginners can understand! This article will assume basic knowledge of Java.
 

@@ -3,7 +3,7 @@ path: '/concurrency-programming-part-3'
 title: 'Concurrency Programming in Java - Part 3'
 author: 'Huiyeon Kim'
 date: '2019-02-07'
-cover_image: "./Concurrency.png"
+cover_image: "./Concurrency.jpg"
 ---
 Welcome to the last part of Introduction to Concurrency Programming in Java! In this last section we will quickly go through what Race Condition is how to resolve them! If you missed the last two articles:
 
@@ -12,7 +12,7 @@ Welcome to the last part of Introduction to Concurrency Programming in Java! In 
 [Click here for Part 2](https://learnwars.com/concurrency-programming-part-2) 
 
 The key concepts we will go through will be:
-1`. What is a Race Condition?
+1. What is a Race Condition?
 2. `Synchronized` keyword
 
 ## What is a Race Condition?

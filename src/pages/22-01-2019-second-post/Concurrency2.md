@@ -3,7 +3,7 @@ path: '/concurrency-programming-part-2'
 title: 'Concurrency Programming in Java - Part 2'
 author: 'Huiyeon Kim'
 date: '2019-01-22'
-cover_image: "./Concurrency.png"
+cover_image: "./Concurrency.jpg"
 ---
 Now that we've gone through the Introduction to Concurrency programming in Java, let's take a deeper look into a important Thread function - "Join" which we can use! Also we will be taking a look at Java Thread State Diagram to understand how Java manages the different Threads.
 
