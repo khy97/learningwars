@@ -54,7 +54,7 @@ class Template extends React.Component {
         const {markdownRemark : post} = this.props.data;
         return (
             <Layout>
-                <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} image={post.frontmatter.cover_image.publicURL} path={post.frontmatter.path}/>
+                <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} image={"https://learnwars.com"+post.frontmatter.cover_image.publicURL} path={post.frontmatter.path}/>
                 <div className="container" id="postContainer">
                     <div className="row">
                         <div className="col s12 m12 l10 offset-l1">
