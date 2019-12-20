@@ -13,3 +13,19 @@ blockquote > p {
 blockquote > p > a {
     color:blue;
 }
+
+.big {
+    height: 100vh;
+    position:sticky;
+    top:0;
+    width:100%;
+}
+
+.small {
+    height:50vh;
+    position:relative;
+}
+
+.posts:last-of-type {
+    margin-bottom: 20px;
+}

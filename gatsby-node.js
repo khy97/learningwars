@@ -45,50 +45,6 @@ exports.createPages = ({actions, graphql}) => {
     })
 
 
-    const authorBlogs = new Promise((resolve, reject) => {
-        const query = graphql(`{
-            allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___date] }
-            ) {
-              edges {
-                node {
-                  excerpt(pruneLength: 250)
-                  frontmatter {
-                    date(formatString: "MMMM Do YYYY")
-                    title
-                    author
-                    path
-                    cover_image {
-                        publicURL
-                    }
-                  }
-                }
-              }
-            }
-          }        
-        `).then(res => {
-            if(res.errors) {
-                reject(res.errors);
-            }
-
-            res.data.allMarkdownRemark.edges.forEach(({node}) => {
-                let author = node.frontmatter.author;
-                let authorName = author.split(' ').join("_");
-                createPage({
-                    path:`/author-blogs/${authorName}`,
-                    component: authorTemplate,
-                    context: {
-                        author:node.frontmatter.author,
-                        pathh:`/author-blogs/${authorName}`,
-                        nodes: res.data.allMarkdownRemark.edges
-                    }
-                })
-            });
-            resolve();
-        })
-
-        resolve(query);
-    })
-
-    return Promise.all([blogs, authorBlogs]);
+    
+    return Promise.all([blogs]);
 }

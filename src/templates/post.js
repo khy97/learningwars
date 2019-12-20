@@ -1,95 +1,52 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 import Img from 'gatsby-image'
-// import Share from '../components/Share.jsx'
-// import './MyBlogPost.css'
-import authors from './Authors';
+import Article from '../components/Article';
 
-class Template extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            x:null,
-            y:null
+const Template = ({data}) => {
+    const [y, setY] = useState(null);
+
+    useEffect(() => {
+        var yy = y
+        yy = window.matchMedia("(max-width: 900px)")
+        containerWidth(yy)
+        yy.addListener(containerWidth)
+        setY(yy);
+        return () => {
+            yy.removeListener(containerWidth)
+            setY(null)
         }
-    }
+    }, [])
 
-    componentDidMount() {
-        var x = this.state.x
-        var y = this.state.y
-        x = window.matchMedia("(max-width: 700px)")
-        y = window.matchMedia("(max-width: 900px)")
-        this.authorHor(x) // Call listener function at run time
-        this.containerWidth(y) // Call listener function at run time
-        x.addListener(this.authorHor) // Attach listener function on state changes 
-        y.addListener(this.containerWidth) // Attach listener function on state changes 
-        this.setState({x,y})
-    }
-    
-    componentWillUnmount() {
-        this.state.x.removeListener(this.authorHor) // Attach listener function on state changes 
-        this.state.y.removeListener(this.containerWidth) // Attach listener function on state changes 
-        this.setState({x:null,y:null})
-    }
-    
-    authorHor = (x) => {
+    const containerWidth = (x) => {
         if (x.matches) { // If media query matches
-            document.getElementById("authorcard").classList.remove("horizontal")
+            document.getElementById("postContainer").style.marginLeft='5px'
+            document.getElementById("postContainer").style.marginRight='5px'
+            document.getElementById("postContainer").style.padding='30px'
+            document.querySelector(".postHeader").style.fontSize='20px'
+            document.querySelector(".article").style.fontSize='15px'
         } else {
-            document.getElementById("authorcard").classList.add("horizontal")
+            document.getElementById("postContainer").style.marginLeft='30px'
+            document.getElementById("postContainer").style.marginRight='30px'
+            document.getElementById("postContainer").style.padding='50px'
+            document.querySelector(".postHeader").style.fontSize='40px'
+            document.querySelector(".article").style.fontSize='21px'
         }
     }
 
-    containerWidth = (x) => {
-        if (x.matches) { // If media query matches
-            document.getElementById("postContainer").style.width='85%'
-        } else {
-            document.getElementById("postContainer").style.width='60%'
-        }
-    }
-
-    render() {
-        const {markdownRemark : post} = this.props.data;
-        return (
-            <Layout>
-                <SEO title={post.frontmatter.title} keywords={[`Learning Wars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog", "LearnWars","learningwars","learnwars","warslearn","learning","teach",post.frontmatter.title, post.frontmatter.author, post.frontmatter.path]} image={"https://learnwars.com"+post.frontmatter.cover_image.publicURL} path={post.frontmatter.path}/>
-                <div className="container" id="postContainer">
-                    <div className="row">
-                        <div className="col s12 m12 l10 offset-l1">
-                            <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid}/>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <h1 className="center-align" style={{fontFamily:`Crimson Text, serif`, fontSize:40}}>{post.frontmatter.title}</h1>
-                        <span style={{fontFamily:`Thasadith`, display:`block`, paddingBottom:15, fontSize:12}} className="center">BY <Link to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`} style={{color:`blue`, textDecoration:`none`}}>{post.frontmatter.author.toUpperCase()}</Link> &#x2027; {post.frontmatter.date.toUpperCase()}</span>
-                        <div dangerouslySetInnerHTML={{__html:post.html}} style={{fontFamily:`Crimson Text, serif`, fontSize:21,lineHeight:1.4, color:`#515151`}}/>
-                    </div>
-                    <div className="row">
-                        <div className="card horizontal" id="authorcard">
-                            <div className="card-image">
-                                <img src={require(`../images/${post.frontmatter.author}.jpg`)} alt="" className="responsive-img" style={{padding:0, margin:0}}/>
-                            </div>
-                            <div className="card-stacked">
-                                <div className="card-content" style={{display:`flex`, justifyContent:`space-around`, alignItems:`center`, flexDirection:`column`, padding:15}}>
-                                    <div style={{fontFamily:`Crimson Text, serif`, fontSize:30}}>{post.frontmatter.author}</div>
-                                    <div style={{fontFamily:`Crimson Text, serif`, fontSize:14}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorTag"]}</div>
-                                    <p style={{fontFamily:`Crimson Text, serif`, fontSize:13,textAlign:`center`}}>{authors[post.frontmatter.author.split(" ").join('_')]["authorDesc"]}</p>
-                                </div>
-                                <div className="card-action" style={{display:`flex`, justifyContent:`center`, alignItems:`center`}}>
-                                    <Link style={{fontFamily:`-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif`, textAlign:`center`}} to={`/author-blogs/${post.frontmatter.author.split(" ").join("_")}`}>Read More Articles</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <JustComments />
-                    </div>
+    const {markdownRemark : post} = data;
+    return (
+        <Layout image={"https://learnwars.com"+post.frontmatter.cover_image.publicURL} title={post.frontmatter.title} path={post.frontmatter.path}>
+            <div id="postContainer" style={{background:`white`, marginTop:30, marginBottom:30, boxShadow:`0 0 30px 0 rgba(56, 83, 190, 0.05)`, borderRadius:4}}>
+                <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} style={{margin:`auto`, width:`75%`, marginBottom:20}}/>
+                <Article post={post} />
+                <div>
+                    <JustComments />
                 </div>
-            </Layout>
-        )
-    }
+            </div>
+        </Layout>
+    )
 }
 
 export default Template

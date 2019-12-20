@@ -7,7 +7,7 @@ body {
   margin: 0;
   height:100%;
   /* background:linear-gradient(to right, #333333, #dd1818); */
-  /* background:white; */
+  background:white;
   /* background-image: url('../images/bitmap.png');
   background-attachment: fixed;
   background-size: cover;
@@ -633,9 +633,7 @@ pre tt:after {
 
 .layoutbody {
     /* max-width: 1800px; */
-    background:whitesmoke;
-    padding-top: 20px;
-    padding-bottom:20px;
+    background:white;
 }
 
 

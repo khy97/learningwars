@@ -13,6 +13,10 @@ export default function HTML(props) {
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
         {props.headComponents}
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossOrigin="anonymous">
+        </script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -25,7 +29,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c6943ffb8c7aca9"></script>
+        <script id="#after" type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c6943ffb8c7aca9"></script>
       </body>
     </html>
   )
