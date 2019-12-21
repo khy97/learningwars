@@ -17,7 +17,7 @@ const Template = ({data}) => {
             yy.removeListener(containerWidth)
             setY(null)
         }
-    }, [])
+    }, [y])
 
     const containerWidth = (x) => {
         if (x.matches) { // If media query matches

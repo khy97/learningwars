@@ -29,7 +29,7 @@ const Layout = ({ children, imagePath, path, title, number }) => {
       setXMatches(false);
       document.querySelector("#___gatsby").removeChild(script);
     }
-  }, [])
+  }, [x])
 
   const response = (x) => {
     const pic = document.querySelector(`.pic`);
