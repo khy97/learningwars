@@ -10,24 +10,24 @@ const Layout = ({ children, imagePath, path, title, number }) => {
   const [x_matches, setXMatches] = useState(false);
 
   useEffect(() => {
-    var script = null;
-    script = document.createElement('script');
-    script.textContent = main
-    script.async = true;
-    script.id = "my_script"
-    document.querySelector("#___gatsby").appendChild(script);
-  
+        var script = null;
+        script = document.createElement('script');
+        script.textContent = main
+        script.async = true;
+        script.id = "my_script"
+        document.querySelector("#___gatsby").appendChild(script);
+  }, [])
 
+  useEffect(() => {
     var xx = x
     xx = window.matchMedia("(max-width: 600px)")
     response(xx)
     xx.addListener(response)
     setX(xx)
     return () => {
-      // x.removeListener(response)
+      xx.removeListener(response)
       setX(null);
       setXMatches(false);
-      document.querySelector("#___gatsby").removeChild(script);
     }
   }, [x])
 

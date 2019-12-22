@@ -7,7 +7,6 @@ const Panel = ({match}) => {
     const [smatch , setSmatch] = useState(match);
 
     useEffect(() => {
-        console.log("CHANGED")
         setSmatch(match);
     }, [match])
 
