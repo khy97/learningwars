@@ -31,7 +31,7 @@ const Template = ({data}) => {
             document.getElementById("postContainer").style.marginRight='30px'
             document.getElementById("postContainer").style.padding='50px'
             document.querySelector(".postHeader").style.fontSize='40px'
-            document.querySelector(".article").style.fontSize='21px'
+            document.querySelector(".article").style.fontSize='16px'
         }
     }
 
