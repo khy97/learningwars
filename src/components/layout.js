@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Panel from './Panel';
 import SEO from '../components/seo'
 import { main } from '../templates/script';
-import './layout.css'
 import Header from './Header';
+import './layout.css';
 
 const Layout = ({ children, imagePath, path, title, number }) => {
   const [x, setX] = useState(null);

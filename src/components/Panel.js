@@ -35,9 +35,6 @@ const Panel = ({match}) => {
                                 <h2 style={{color:`#00ffd5`, fontFamily:`Raleway`, fontSize:`0.85rem`,  textAlign:`center`}}>Software Engineer @ Goldman Sachs</h2>
                             </div>
                             <p style={{fontFamily:`Raleway`, textAlign:`center`,}}>Welcome to <strong>LearnWars</strong>! This is a blog where I share my growing knowledge with the public. I speak Tech and Programming. <br/><br/> Enjoy and  let me know any feedback!</p>
-                            <div>
-
-                            </div>
                         </div>
                     )
                 }
