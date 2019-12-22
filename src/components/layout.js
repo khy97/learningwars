@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Panel from './Panel';
 import SEO from '../components/seo'
 import { main } from '../templates/script';
-import Header from './Header';
+import Header from './header';
 import './layout.css';
 
 const Layout = ({ children, imagePath, path, title, number }) => {
