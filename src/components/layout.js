@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Panel from './Panel';
-import SEO from '../components/seo'
 import { main } from '../templates/script';
 import Header from './header';
 import './layout.css';
 
-const Layout = ({ children, imagePath, path, title, number }) => {
+const Layout = ({ children }) => {
   const [x, setX] = useState(null);
   const [x_matches, setXMatches] = useState(false);
 
@@ -53,7 +52,6 @@ const Layout = ({ children, imagePath, path, title, number }) => {
   return (
     <div className="body">
       <div className="layoutbody">
-        <SEO title={title == null ? "Home" : title} keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={imagePath==null ? require('../images/LearnWars.png') : imagePath} path={path==null ? null : path}/>
         <div style={{width:`100%`}}>
           <div className="row mainbody" style={{margin:0}}>
               <div className="pic col m4 l4 leftt" style={{padding:0, background:`linear-gradient(145deg,#0d1221,#2c3184)`, zIndex:1}}>
@@ -63,7 +61,7 @@ const Layout = ({ children, imagePath, path, title, number }) => {
                   </div>
               </div>
               <div className="col s12 m8 l8" style={{background:`#f7f9fe`}}>
-                <Header number={number}/>
+                <Header number={9}/>
                 {children}
               </div>
           </div>

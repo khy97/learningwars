@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import SEO from '../components/seo';
 import Img from 'gatsby-image'
 import Article from '../components/Article';
 
@@ -37,7 +37,8 @@ const Template = ({data}) => {
 
     const {markdownRemark : post} = data;
     return (
-        <Layout image={"https://learnwars.com"+post.frontmatter.cover_image.publicURL} title={post.frontmatter.title} path={post.frontmatter.path}>
+        <div>
+            <SEO title={post.frontmatter.title} keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={"https://learnwars.com"+post.frontmatter.cover_image.publicURL}  path={post.frontmatter.path}/>
             <div id="postContainer" style={{background:`white`, marginTop:30, marginBottom:30, boxShadow:`0 0 30px 0 rgba(56, 83, 190, 0.05)`, borderRadius:4}}>
                 <Img fluid={post.frontmatter.cover_image.childImageSharp.fluid} style={{margin:`auto`, width:`75%`, marginBottom:20}}/>
                 <Article post={post} />
@@ -45,7 +46,7 @@ const Template = ({data}) => {
                     <JustComments />
                 </div>
             </div>
-        </Layout>
+        </div>
     )
 }
 

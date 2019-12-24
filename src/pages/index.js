@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout' 
+import SEO from '../components/seo' 
 import './index.css'
 import Post from '../components/post';
 
@@ -8,11 +8,12 @@ class IndexPage extends React.Component {
   render() {
     const postList = this.props.data.allMarkdownRemark;
     return(
-        <Layout number={postList.edges.length}>
+        <div>
+            <SEO title={"Home"} keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={require('../images/LearnWars.png')} />
             {postList.edges.map(({node}, i) => (
                 <Post i={i} node={node}/>
             ))}
-        </Layout>
+        </div>
     )
   }
 }

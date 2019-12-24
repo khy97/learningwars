@@ -1,6 +1,5 @@
 module.exports = {
-    'main': `console.log(document.querySelector("#playArea"));
-    window.requestAnimFrame = (function(){
+    'main': `window.requestAnimFrame = (function(){
       return  window.requestAnimationFrame       ||
               window.webkitRequestAnimationFrame ||
               window.mozRequestAnimationFrame    ||
@@ -137,11 +136,11 @@ module.exports = {
       
       for(x=0; x<numPoints; x++){
         var newPoint = new Point();
-        newPoint._size = (Math.random() * (8 - 0.5) + 0.1).toFixed(2);
+        newPoint._size = (Math.random() * (5 - 0.5) + 0.1).toFixed(2);
         newPoint._x = (Math.random() * width).toFixed(0);
         newPoint._y = (Math.random() * height).toFixed(0);
         newPoint._direction = (Math.random() * 360).toFixed(2);
-        newPoint._velocity = (Math.random() * (1 - 0.1) + 0.01).toFixed(2);
+        newPoint._velocity = (Math.random() * (3 - 0.1) + 0.01).toFixed(2);
         newPoint._randomization = (Math.random() * (10 - 0) + 0).toFixed(2);
         aPoints.push(newPoint);
       }
