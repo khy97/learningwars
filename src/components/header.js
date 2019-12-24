@@ -2,7 +2,10 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 const Header = ({number}) => {
-    const location = window.location.href;
+    let location = "";
+    if(typeof window !== undefined) {
+        location = window.location.href;
+    }
     const check = location[location.length - 1] === 'https://learnwars.com/' || location[location.length - 1] === 'https://learnwars.com' || location[location.length - 1] === 'https://www.learnwars.com/' || location[location.length - 1] === 'https://www.learnwars.com'
     console.log(location)
     return (
