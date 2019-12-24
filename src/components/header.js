@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 
 const Header = ({number}) => {
     let location = "";
-    if(typeof window !== undefined) {
+    if(typeof window !== `undefined`) {
         location = window.location.href;
     }
     const check = location[location.length - 1] === 'https://learnwars.com/' || location[location.length - 1] === 'https://learnwars.com' || location[location.length - 1] === 'https://www.learnwars.com/' || location[location.length - 1] === 'https://www.learnwars.com'
