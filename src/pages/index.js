@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo' 
+import Header from '../components/header' 
 import './index.css'
 import Post from '../components/post';
 
@@ -10,6 +11,7 @@ class IndexPage extends React.Component {
     return(
         <div>
             <SEO title={"Home"} keywords={[`LearnWars`, `Blog`, `Learn`, `Teach`, `Tech`,"Learn Wars", "Wars", "Blog","learningwars","learnwars","warslearn","learning","Teach"]} image={require('../images/LearnWars.png')} />
+            <Header number={9}/>
             {postList.edges.map(({node}, i) => (
                 <Post i={i} node={node}/>
             ))}

@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Panel from './Panel';
 import { main } from '../templates/script';
-import Header from './header';
 import './layout.css';
 
 const Layout = ({ children }) => {
@@ -61,7 +60,6 @@ const Layout = ({ children }) => {
                   </div>
               </div>
               <div className="col s12 m8 l8" style={{background:`#f7f9fe`}}>
-                <Header number={9}/>
                 {children}
               </div>
           </div>
